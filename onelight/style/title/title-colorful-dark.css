@@ -287,7 +287,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    caret-color: #c70909;
+    caret-color: #3ddde6;
     --ol-title-decoration-color: #5a80ff;
     padding: 1px 12.5px;
     animation: h5FlowFixedStutter 6s ease-in-out infinite reverse;
@@ -344,7 +344,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    caret-color: #c70909;
+    caret-color: #cf61fa;
     --ol-title-decoration-color: #5a80ff;
     padding: 1px 12.5px;
     animation: h5FlowFixedStutter 6s ease-in-out infinite reverse;

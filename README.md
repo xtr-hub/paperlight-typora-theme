@@ -1,21 +1,39 @@
 <h1 align='center'>OneLight Theme For Typora</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/caolib/typora-onelight-theme/total?labelColor=grey&color=blue" alt="Downloads">
-  <img src="https://img.shields.io/github/v/release/caolib/typora-onelight-theme?labelColor=grey&color=red" alt="Release">
-  <img src="https://img.shields.io/github/license/caolib/typora-onelight-theme" alt="License">
-  <img src="https://img.shields.io/github/stars/caolib/typora-onelight-theme" alt="Stars">
-  <img src="https://img.shields.io/github/issues/caolib/typora-onelight-theme?label=Issues" alt="Issues">
-  <img src="https://img.shields.io/github/last-commit/caolib/typora-onelight-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4" alt="Last Commit">
-  <img src="https://img.shields.io/github/downloads/caolib/typora-onelight-theme/latest/total">
-  <img src="https://github.com/caolib/typora-onelight-theme/actions/workflows/ci.yml/badge.svg" alt="ci">
+  <img src="https://img.shields.io/badge/unofficial%20community%20fork-xtr--hub-blue?labelColor=grey" alt="Unofficial Community Fork">
+  <img src="https://img.shields.io/github/last-commit/xtr-hub/typora-onelight-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4&labelColor=grey&color=green" alt="Last Commit">
+  <img src="https://img.shields.io/github/stars/xtr-hub/typora-onelight-theme?labelColor=grey&color=yellow" alt="Stars">
+  <img src="https://img.shields.io/github/issues/xtr-hub/typora-onelight-theme?label=Issues&labelColor=grey&color=orange" alt="Issues">
+</p>
+
+> [!note]
+> **关于本仓库**
+>
+> 本仓库是 [caolib/typora-onelight-theme](https://github.com/caolib/typora-onelight-theme) 的**非官方社区 fork**，与原仓库及原作者 @caolib 无关联，也未获得任何形式的授权或移交。在此感谢原作者创作了这套主题。
+>
+> 由于原仓库已停止更新，本仓库由使用者 [@xtr-hub](https://github.com/xtr-hub) 自发进行日常维护（修复问题、跟进 Typora 更新等），仅供参考学习。如果你希望使用官方版本，请访问原仓库。
+
+<p align="center">
+	简体中文 |
+	<a href="https://zdoc.app/de/caolib/typora-onelight-theme">Deutsch</a> | 
+	<a href="https://zdoc.app/en/caolib/typora-onelight-theme">English</a> | 
+	<a href="https://zdoc.app/es/caolib/typora-onelight-theme">Español</a> | 
+	<a href="https://zdoc.app/fr/caolib/typora-onelight-theme">français</a> | 
+	<a href="https://zdoc.app/ja/caolib/typora-onelight-theme">日本語</a> | 
+	<a href="https://zdoc.app/ko/caolib/typora-onelight-theme">한국어</a> | 
+	<a href="https://zdoc.app/pt/caolib/typora-onelight-theme">Português</a> | 
+	<a href="https://zdoc.app/ru/caolib/typora-onelight-theme">Русский</a>
+</p>
+
+
+<p align="center">
+  <img src="https://img.shields.io/github/downloads/xtr-hub/typora-onelight-theme/total?labelColor=grey&color=blue" alt="Downloads">
+  <img src="https://img.shields.io/github/v/release/xtr-hub/typora-onelight-theme?labelColor=grey&color=red" alt="Release">
+  <img src="https://img.shields.io/github/license/xtr-hub/typora-onelight-theme" alt="License">
 </p>
 
 ## 1.概览
-
-> [!WARNING]
->
-> 已经没有维护下去的动力了，就这样
 
 ---
 
@@ -49,7 +67,7 @@
 
 ### 2.1 下载文件（推荐）
 
-> 1. 下载[主题文件压缩包](https://github.com/caolib/typora-onelight-theme/releases)
+> 1. 下载[主题文件压缩包](https://github.com/xtr-hub/typora-onelight-theme/releases)
 > 2. 在typora中选择 文件 → 偏好设置 → 外观 → 打开主题文件夹
 > 3. 将下载的压缩包解压，将**css文件**和**文件夹**粘贴到typora的主题文件夹themes中
 > 4. 重启Typora然后在菜单栏切换主题，大功告成
@@ -65,7 +83,7 @@
 > 2. **为了避免克隆到其他分支的无关文件，请一定要使用下面这条命令克隆！！否则你要下载很长时间**（项目fork自官方仓库，提交历史包含了gh-pages分支的记录）
 >
 >    ```shell
->    git clone --single-branch https://github.com/caolib/typora-onelight-theme.git
+>    git clone --single-branch https://github.com/xtr-hub/typora-onelight-theme.git
 >    ```
 >
 > 这种方法的优点是比较方便，后续更新只需要`git pull`命令即可获取最新的提交，缺点是clone会将整个项目的文件下载下来，包括一些不必要的md文件等
@@ -159,7 +177,7 @@
 
 > [!warning]
 >
-> 默认风格某些情况下会出现[错位](https://github.com/caolib/typora-onelight-theme/issues/32)
+> 默认风格某些情况下会出现[错位](https://github.com/caolib/typora-onelight-theme/issues/32)（原仓库 issue）
 
 <div align="center">
   <table>
@@ -255,8 +273,8 @@
 
 ✅ 一体化模式下主题效果更佳✨
 
-❓ 有问题可以在 [Issues](https://github.com/caolib/typora-onelight-theme/issues) 提问，欢迎各种意见
+❓ 有问题可以在 [Issues](https://github.com/xtr-hub/typora-onelight-theme/issues) 提问，欢迎各种意见
 
-📄 [docs](https://github.com/caolib/typora-onelight-theme/tree/onelight/docs)文件夹中有示例文章的markdown文件📄
+📄 [docs](https://github.com/xtr-hub/typora-onelight-theme/tree/onelight/docs)文件夹中有示例文章的markdown文件📄
 
-🖼️ [img](https://github.com/caolib/typora-onelight-theme/tree/onelight/onelight/img)文件夹中有主题的背景图片，如果不需要可以直接删除
+🖼️ [img](https://github.com/xtr-hub/typora-onelight-theme/tree/onelight/onelight/img)文件夹中有主题的背景图片，如果不需要可以直接删除
