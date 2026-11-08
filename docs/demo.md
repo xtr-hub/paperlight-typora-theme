@@ -46,7 +46,7 @@
 
 ## 4 代码
 
-行内代码 `caolib/typora-onelight-theme`
+行内代码 `xtr-hub/typora-onelight-theme`
 
 ```javascript
 export default defineConfig({
@@ -127,7 +127,7 @@ export default defineConfig({
 
 图片默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐 
 
-<img src="https://img.shields.io/github/downloads/caolib/typora-onelight-theme/latest/total">
+<img src="https://img.shields.io/github/downloads/xtr-hub/typora-onelight-theme/latest/total">
 
 `<img align='left' src="......"/> <img align='right' src="......"/>`
 
@@ -160,7 +160,7 @@ $$
 
 <https://clb.pages.dev>
 
-[typora-onelight-theme](https://github.com/caolib/typora-onelight-theme)
+[typora-onelight-theme](https://github.com/xtr-hub/typora-onelight-theme)
 
 ## 11 音频
 

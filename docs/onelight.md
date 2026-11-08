@@ -2,8 +2,8 @@
 layout: theme
 title: OneLight
 category: theme
-homepage: https://github.com/caolib/typora-onelight-theme
-download: https://github.com/caolib/typora-onelight-theme/releases
+homepage: https://github.com/xtr-hub/typora-onelight-theme
+download: https://github.com/xtr-hub/typora-onelight-theme/releases
 author: caolib
 thumbnail: onelight.png
 typora-root-url: ../../
@@ -13,12 +13,10 @@ typora-root-url: ../../
 
 <p align="center">
     简体中文
-    |
-    <a href="https://github.com/caolib/typora-onelight-theme/blob/onelight/docs/README_en.md">English</a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/caolib/typora-onelight-theme" alt="Stars"> <img src="https://img.shields.io/github/downloads/caolib/typora-onelight-theme/total?labelColor=grey&color=blue" alt="Downloads"> <img src="https://img.shields.io/github/license/caolib/typora-onelight-theme" alt="License"> <img src="https://img.shields.io/github/v/release/caolib/typora-onelight-theme?labelColor=grey&color=red" alt="Release"> <img src="https://img.shields.io/github/last-commit/caolib/typora-onelight-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4" alt="Last Commit">
+  <img src="https://img.shields.io/github/stars/xtr-hub/typora-onelight-theme" alt="Stars"> <img src="https://img.shields.io/github/downloads/xtr-hub/typora-onelight-theme/total?labelColor=grey&color=blue" alt="Downloads"> <img src="https://img.shields.io/github/license/xtr-hub/typora-onelight-theme" alt="License"> <img src="https://img.shields.io/github/v/release/xtr-hub/typora-onelight-theme?labelColor=grey&color=red" alt="Release"> <img src="https://img.shields.io/github/last-commit/xtr-hub/typora-onelight-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4" alt="Last Commit">
 </p>
 
 
@@ -43,4 +41,4 @@ typora-root-url: ../../
 1. [OneLight](https://bin-sites.pages.dev/onelight)、[OneLight-Dark](https://bin-sites.pages.dev/onelight/dark)
 2. [计算机网络](https://bin-sites.pages.dev/net/计算机网络)
 
-[前往github下载](https://github.com/caolib/typora-onelight-theme#2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8)
+[前往github下载](https://github.com/xtr-hub/typora-onelight-theme#2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8)

@@ -3,7 +3,7 @@ description: 报告主题中的错误或显示问题
 labels:
   - bug
 assignees:
-  - caolib
+  - xtr-hub
 body:
   - type: input
     id: theme_version

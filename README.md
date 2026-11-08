@@ -12,18 +12,18 @@
 >
 > 本仓库是 [caolib/typora-onelight-theme](https://github.com/caolib/typora-onelight-theme) 的**非官方社区 fork**，与原仓库及原作者 @caolib 无关联，也未获得任何形式的授权或移交。在此感谢原作者创作了这套主题。
 >
-> 由于原仓库已停止更新，本仓库由使用者 [@xtr-hub](https://github.com/xtr-hub) 自发进行日常维护（修复问题、跟进 Typora 更新等），仅供参考学习。如果你希望使用官方版本，请访问原仓库。
+> 由于原仓库已停止更新，本仓库由使用者 [@xtr-hub](https://github.com/xtr-hub) 自发进行日常维护（修复问题、跟进 Typora 更新等），并在本仓库独立发布版本，仅供参考学习。
 
 <p align="center">
 	简体中文 |
-	<a href="https://zdoc.app/de/caolib/typora-onelight-theme">Deutsch</a> | 
-	<a href="https://zdoc.app/en/caolib/typora-onelight-theme">English</a> | 
-	<a href="https://zdoc.app/es/caolib/typora-onelight-theme">Español</a> | 
-	<a href="https://zdoc.app/fr/caolib/typora-onelight-theme">français</a> | 
-	<a href="https://zdoc.app/ja/caolib/typora-onelight-theme">日本語</a> | 
-	<a href="https://zdoc.app/ko/caolib/typora-onelight-theme">한국어</a> | 
-	<a href="https://zdoc.app/pt/caolib/typora-onelight-theme">Português</a> | 
-	<a href="https://zdoc.app/ru/caolib/typora-onelight-theme">Русский</a>
+	<a href="https://zdoc.app/de/xtr-hub/typora-onelight-theme">Deutsch</a> | 
+	<a href="https://zdoc.app/en/xtr-hub/typora-onelight-theme">English</a> | 
+	<a href="https://zdoc.app/es/xtr-hub/typora-onelight-theme">Español</a> | 
+	<a href="https://zdoc.app/fr/xtr-hub/typora-onelight-theme">français</a> | 
+	<a href="https://zdoc.app/ja/xtr-hub/typora-onelight-theme">日本語</a> | 
+	<a href="https://zdoc.app/ko/xtr-hub/typora-onelight-theme">한국어</a> | 
+	<a href="https://zdoc.app/pt/xtr-hub/typora-onelight-theme">Português</a> | 
+	<a href="https://zdoc.app/ru/xtr-hub/typora-onelight-theme">Русский</a>
 </p>
 
 
@@ -37,25 +37,25 @@
 
 ---
 
-![image-20250531153638583](https://s2.loli.net/2025/05/31/Bzxh8GMVeXnYHPb.png)
+![image-20250531153638583](docs/img/readme/overview-1.png)
 
-![image-20250531153718830](https://s2.loli.net/2025/05/31/lN4ZW7GFVAKdw3u.png)
+![image-20250531153718830](docs/img/readme/overview-2.png)
 
-![image-20250511190116728](https://s2.loli.net/2025/06/24/shrmC7xiy9tKQH1.png)
+![image-20250511190116728](docs/img/readme/overview-3.png)
 
-![image-20250511184920000](https://s2.loli.net/2025/06/24/ZVsQ1O3FSRpbJgE.png)
+![image-20250511184920000](docs/img/readme/overview-4.png)
 
-![image-20250511200329113](https://s2.loli.net/2025/05/11/mUofcTY1qNb5OX9.png)
+![image-20250511200329113](docs/img/readme/overview-5.png)
 
-![image-20250511185936255](https://s2.loli.net/2025/05/11/ULwkB9dnPiTEpaM.png)
+![image-20250511185936255](docs/img/readme/overview-6.png)
 
 <details><summary><kbd>展开查看更多截图</summary></kbd>
-  <img src="https://s2.loli.net/2025/05/11/23GUxWvkhDE4doF.png"></br>
-  <img src="https://s2.loli.net/2025/05/11/JUrxQsdYvVg6OZe.png"></br>
-  <img src="https://s2.loli.net/2025/05/11/aZsAW1kXDBqM2hV.png"></br>
-  <img src="https://s2.loli.net/2025/05/11/x35yzoV2GC4vXIU.png"></br>
-  <img src="https://s2.loli.net/2025/05/11/PrlOStnM3J4Tehz.png"></br>
-  <img src="https://s2.loli.net/2025/05/11/4l1rUvLfhHQCc2g.png"></br>
+  <img src="docs/img/readme/overview-more-1.png"></br>
+  <img src="docs/img/readme/overview-more-2.png"></br>
+  <img src="docs/img/readme/overview-more-3.png"></br>
+  <img src="docs/img/readme/overview-more-4.png"></br>
+  <img src="docs/img/readme/overview-more-5.png"></br>
+  <img src="docs/img/readme/overview-more-6.png"></br>
 </details>
 
 
@@ -165,11 +165,11 @@
       <th>彩色</th>
     </tr>
     <tr>
-      <td><img src="https://s2.loli.net/2025/06/24/9YwPCWLauKxq6E7.png"/></td>
-      <td><img src="https://pic1.imgdb.cn/item/68621c9058cb8da5c87ebcae.gif"/></td>
+      <td><img src="docs/img/readme/heading-default-1.png"/></td>
+      <td><img src="docs/img/readme/heading-colorful-1.gif"/></td>
     <tr>
-	    <td><img src="https://s2.loli.net/2025/06/24/Bao4lWrA7q23L1F.png"/></td>
-      <td><img src="https://pic1.imgdb.cn/item/68621c9658cb8da5c87ebcb3.gif"/></td>
+	    <td><img src="docs/img/readme/heading-default-2.png"/></td>
+      <td><img src="docs/img/readme/heading-colorful-2.gif"/></td>
   </table>
 </div>
 
@@ -177,7 +177,7 @@
 
 > [!warning]
 >
-> 默认风格某些情况下会出现[错位](https://github.com/caolib/typora-onelight-theme/issues/32)（原仓库 issue）
+> 默认风格某些情况下会出现[错位](https://github.com/xtr-hub/typora-onelight-theme/issues)（已知问题）
 
 <div align="center">
   <table>
@@ -186,12 +186,12 @@
       <th>普通</th>
     </tr>
     <tr>
-      <td><img src="https://s2.loli.net/2025/06/24/ofGeAEH1acyK8WB.png"/></td>
-      <td><img src="https://s2.loli.net/2025/06/24/rNpkRxn6PJ4SfWe.png"/></td>
+      <td><img src="docs/img/readme/list-default-1.png"/></td>
+      <td><img src="docs/img/readme/list-normal-1.png"/></td>
     </tr>
     <tr>
-	    <td><img src="https://s2.loli.net/2025/06/24/ZaflTqwb8tFo6OV.png"/></td>
-      <td><img src="https://s2.loli.net/2025/06/24/MuYtWmLU1rXoHwk.png"/></td>
+	    <td><img src="docs/img/readme/list-default-2.png"/></td>
+      <td><img src="docs/img/readme/list-normal-2.png"/></td>
     </tr>
   </table>
 </div>
@@ -205,12 +205,12 @@
       <th>原样式</th>
     </tr>
     <tr>
-      <td><img src="https://s2.loli.net/2025/06/24/a98iYcERykNHQfv.png"/></td>
-      <td><img src="https://s2.loli.net/2025/06/24/RNgQLvaqszKUVn4.png"/></td>
+      <td><img src="docs/img/readme/warning-default-1.png"/></td>
+      <td><img src="docs/img/readme/warning-original-1.png"/></td>
     </tr>
     <tr>
-	    <td><img src="https://s2.loli.net/2025/06/24/FpqluvZdcAH71my.png"/></td>
-      <td><img src="https://s2.loli.net/2025/06/24/v26zKmDYxMNyUfr.png"/></td>
+	    <td><img src="docs/img/readme/warning-default-2.png"/></td>
+      <td><img src="docs/img/readme/warning-original-2.png"/></td>
     </tr>
   </table>
 </div>
@@ -231,8 +231,8 @@
       <th>动态星空</th>
     </tr>
     <tr>
-      <td><img src="https://s2.loli.net/2025/06/28/4hVHnSvQeaMCs2b.png"/></td>
-      <td><img src="https://pic1.imgdb.cn/item/68621f3158cb8da5c87ec9f2.gif"/></td> 
+      <td><img src="docs/img/readme/background-default.png"/></td>
+      <td><img src="docs/img/readme/background-galaxy.gif"/></td> 
     </tr>
   </table>
 </div>
@@ -263,13 +263,13 @@
 > }
 > ```
 >
-> <img src="https://s2.loli.net/2025/03/05/7Ds8SCmvWnkwraM.png" style="zoom: 50%;" />
+> <img src="docs/img/readme/background-image-preview.png" style="zoom: 50%;" />
 
 ---
 
 ## 6.其他
 
-<img align='right' src="https://s2.loli.net/2025/01/04/zt7O3daMLDC5EHW.png" alt="喜欢" />⭐ 如果喜欢主题的话，请给一个star吧，感谢🙏！
+<img align='right' src="docs/img/readme/star.png" alt="喜欢" />⭐ 如果喜欢主题的话，请给一个star吧，感谢🙏！
 
 ✅ 一体化模式下主题效果更佳✨
 

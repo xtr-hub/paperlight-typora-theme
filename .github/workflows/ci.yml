@@ -4,13 +4,17 @@ on:
     tags:
       - "*" # 监听所有标签的推送
   workflow_dispatch: # 允许手动触发
+
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # 获取所有历史记录，以便比较标签
 
@@ -86,7 +90,7 @@ jobs:
           echo "" >> complete_notes.txt
           cat release_notes.txt >> complete_notes.txt
           echo "" >> complete_notes.txt
-          echo "[Full Changelog](https://github.com/caolib/typora-onelight-theme/commits/${{ github.ref }})" >> complete_notes.txt
+          echo "[Full Changelog](https://github.com/xtr-hub/typora-onelight-theme/commits/${{ github.ref }})" >> complete_notes.txt
 
           # 将提交信息保存到环境变量，用于后续步骤
           # 使用EOF方式确保多行文本正确保存
@@ -112,53 +116,22 @@ jobs:
           zip -r onelight-${{ env.TAG_NAME }}-minimal.zip ./onelight.css ./onelight-dark.css ./onelight \
             -x "onelight/fonts/*" "onelight/fonts/**" "onelight/img/*" "onelight/img/**"
 
-      - name: 创建发布
-        id: release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: ${{ env.RELEASE_NOTES }}
-          prerelease: false
+      - name: 创建发布并上传文件
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ env.TAG_NAME }}
+        run: |
+          # 已存在（例如手动创建）则复用，避免重复创建失败
+          if ! gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            gh release create "$TAG_NAME" \
+              --title "Release $TAG_NAME" \
+              --notes-file complete_notes.txt \
+              --verify-tag
+          fi
 
-      - name: 上传发布文件
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: onelight-${{ env.TAG_NAME }}.zip
-          asset_name: onelight-${{ env.TAG_NAME }}.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-      - name: 上传发布文件（无图片）
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: onelight-${{ env.TAG_NAME }}-noimg.zip
-          asset_name: onelight-${{ env.TAG_NAME }}-noimg.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-      - name: 上传发布文件（无字体）
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: onelight-${{ env.TAG_NAME }}-nofont.zip
-          asset_name: onelight-${{ env.TAG_NAME }}-nofont.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-      - name: 上传发布文件（最小）
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: onelight-${{ env.TAG_NAME }}-minimal.zip
-          asset_name: onelight-${{ env.TAG_NAME }}-minimal.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          gh release upload "$TAG_NAME" \
+            "onelight-$TAG_NAME.zip" \
+            "onelight-$TAG_NAME-noimg.zip" \
+            "onelight-$TAG_NAME-nofont.zip" \
+            "onelight-$TAG_NAME-minimal.zip" \
+            --clobber
