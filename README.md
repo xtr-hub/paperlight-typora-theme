@@ -278,3 +278,17 @@
 📄 [docs](https://github.com/xtr-hub/typora-onelight-theme/tree/onelight/docs)文件夹中有示例文章的markdown文件📄
 
 🖼️ [img](https://github.com/xtr-hub/typora-onelight-theme/tree/onelight/onelight/img)文件夹中有主题的背景图片，如果不需要可以直接删除
+
+---
+
+## 7.演示图片自动采集
+
+仓库提供了一个基于 **Typora 官方 theme toolkit `html-preview`** 的截图工具，用于自动生成浅色/深色主题的预览图片。它直接使用官方预览页，不再自己实现 Markdown 渲染器，也不会控制 Typora 或桌面。
+
+```bash
+cd tools/demo-shots
+npm install
+npm run shots
+```
+
+首次运行会自动拉取官方 toolkit。生成结果默认在 `docs/img/preview/`，详细用法和限制见 [tools/demo-shots/README.md](tools/demo-shots/README.md)。

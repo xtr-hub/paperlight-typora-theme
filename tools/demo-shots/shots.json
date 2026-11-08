@@ -1,0 +1,68 @@
+{
+  "themes": {
+    "light": "/onelight.css",
+    "dark": "/onelight-dark.css"
+  },
+  "pages": {
+    "lorem": "html-preview/html/lorem.html",
+    "ui": "html-preview/html/ui-controls2.html"
+  },
+  "viewport": {
+    "width": 1200,
+    "height": 900
+  },
+  "deviceScaleFactor": 2,
+  "shots": [
+    {
+      "name": "overview",
+      "page": "lorem",
+      "mode": "viewport",
+      "scrollTo": "#write h1"
+    },
+    {
+      "name": "headings",
+      "page": "lorem",
+      "group": "#write h1, #write h2, #write h3, #write h4, #write h5, #write h6"
+    },
+    {
+      "name": "blockquote",
+      "page": "lorem",
+      "selector": "#write blockquote"
+    },
+    {
+      "name": "code",
+      "page": "lorem",
+      "selector": "#write pre.md-fences"
+    },
+    {
+      "name": "lists",
+      "page": "lorem",
+      "selector": "#write > ol"
+    },
+    {
+      "name": "task-list",
+      "page": "lorem",
+      "selector": "#write .task-list"
+    },
+    {
+      "name": "table",
+      "page": "lorem",
+      "selector": "#write table"
+    },
+    {
+      "name": "math",
+      "page": "lorem",
+      "selector": "#write p:has(.md-inline-math)"
+    },
+    {
+      "name": "toc",
+      "page": "lorem",
+      "selector": "#write .md-toc"
+    },
+    {
+      "name": "sidebar",
+      "page": "ui",
+      "mode": "viewport"
+    }
+  ]
+}

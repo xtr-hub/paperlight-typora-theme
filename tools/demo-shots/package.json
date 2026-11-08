@@ -1,0 +1,18 @@
+{
+  "name": "onelight-theme-preview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Screenshot the official Typora theme toolkit HTML preview with the OneLight theme.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "shots": "node collect.mjs",
+    "shots:light": "node collect.mjs --theme light",
+    "shots:dark": "node collect.mjs --theme dark"
+  },
+  "dependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}
