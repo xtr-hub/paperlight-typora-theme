@@ -85,13 +85,13 @@
         </label>
 
         <label class="row range-row">
-          <span>遮罩强度 <output id="pageBgOverlayValue">60</output>%</span>
+          <span class="range-label"><span>遮罩强度</span><span class="range-value"><output id="pageBgOverlayValue">60</output><span class="range-unit">%</span></span></span>
           <input id="pageBgOverlay" type="range" min="0" max="90" step="5" value="60">
         </label>
         <p class="hint">遮罩会柔化背景图片，让文字更容易阅读。</p>
         <div class="grid-2">
-          <label class="row range-row"><span>横向位置 <output id="pageBgXValue">50</output>%</span><input id="pageBgX" type="range" min="0" max="100" value="50"></label>
-          <label class="row range-row"><span>纵向位置 <output id="pageBgYValue">50</output>%</span><input id="pageBgY" type="range" min="0" max="100" value="50"></label>
+          <label class="row range-row"><span class="range-label"><span>横向位置</span><span class="range-value"><output id="pageBgXValue">50</output><span class="range-unit">%</span></span></span><input id="pageBgX" type="range" min="0" max="100" value="50"></label>
+          <label class="row range-row"><span class="range-label"><span>纵向位置</span><span class="range-value"><output id="pageBgYValue">50</output><span class="range-unit">%</span></span></span><input id="pageBgY" type="range" min="0" max="100" value="50"></label>
         </div>
         <p class="hint">选择「自定义」位置后，拖动滑块精细调整。</p>
       </section>
@@ -115,20 +115,20 @@
         <label class="row"><span>表情包图片链接</span><input id="watermarkUrl" type="url" placeholder="https://example.com/sticker.gif"></label>
         <label class="row"><span>停靠位置</span><select id="watermarkAnchor"><option value="bottom-right">右下</option><option value="bottom-left">左下</option><option value="top-right">右上</option><option value="top-left">左上</option></select></label>
         <label class="row range-row">
-          <span>尺寸 <output id="watermarkSizeValue">108</output>px</span>
+          <span class="range-label"><span>尺寸</span><span class="range-value"><output id="watermarkSizeValue">108</output><span class="range-unit">px</span></span></span>
           <input id="watermarkSize" type="range" min="72" max="180" step="2" value="108">
         </label>
         <label class="row range-row">
-          <span>不透明度 <output id="watermarkOpacityValue">100</output>%</span>
+          <span class="range-label"><span>不透明度</span><span class="range-value"><output id="watermarkOpacityValue">100</output><span class="range-unit">%</span></span></span>
           <input id="watermarkOpacity" type="range" min="20" max="100" step="5" value="100">
         </label>
         <div class="grid-2">
           <label class="row range-row">
-            <span>横向边距 <output id="watermarkRightValue">22</output>px</span>
+            <span class="range-label"><span>横向边距</span><span class="range-value"><output id="watermarkRightValue">22</output><span class="range-unit">px</span></span></span>
             <input id="watermarkRight" type="range" min="0" max="100" step="2" value="22">
           </label>
           <label class="row range-row">
-            <span>纵向边距 <output id="watermarkBottomValue">38</output>px</span>
+            <span class="range-label"><span>纵向边距</span><span class="range-value"><output id="watermarkBottomValue">38</output><span class="range-unit">px</span></span></span>
             <input id="watermarkBottom" type="range" min="0" max="120" step="2" value="38">
           </label>
         </div>
@@ -148,15 +148,15 @@
           <span>标题使用手写体（MiaoZi）</span>
         </label>
         <label class="row range-row">
-          <span>字号 <output id="fontSizeValue">16</output>px</span>
+          <span class="range-label"><span>字号</span><span class="range-value"><output id="fontSizeValue">16</output><span class="range-unit">px</span></span></span>
           <input id="fontSize" type="range" min="14" max="19" step="0.5" value="16">
         </label>
         <label class="row range-row">
-          <span>行高 <output id="lineHeightValue">1.75</output></span>
+          <span class="range-label"><span>行高</span><span class="range-value"><output id="lineHeightValue">1.75</output></span></span>
           <input id="lineHeight" type="range" min="1.5" max="2.1" step="0.05" value="1.75">
         </label>
         <label class="row range-row">
-          <span>内容宽度 <output id="contentWidthValue">840</output>px</span>
+          <span class="range-label"><span>内容宽度</span><span class="range-value"><output id="contentWidthValue">840</output><span class="range-unit">px</span></span></span>
           <input id="contentWidth" type="range" min="680" max="1120" step="10" value="840">
         </label>
       </section>
@@ -164,7 +164,7 @@
       <section class="control-section">
         <h2>细节</h2>
         <label class="row range-row">
-          <span>圆角 <output id="radiusValue">6</output>px</span>
+          <span class="range-label"><span>圆角</span><span class="range-value"><output id="radiusValue">6</output><span class="range-unit">px</span></span></span>
           <input id="radius" type="range" min="0" max="18" step="1" value="6">
         </label>
         <label class="row">
@@ -183,7 +183,7 @@
           <span>h2 下方细线</span>
         </label>
         <label class="row range-row">
-          <span>Focus 淡化 <output id="focusDimValue">65</output>%</span>
+          <span class="range-label"><span>Focus 淡化</span><span class="range-value"><output id="focusDimValue">65</output><span class="range-unit">%</span></span></span>
           <input id="focusDim" type="range" min="20" max="90" step="5" value="65">
         </label>
       </section>

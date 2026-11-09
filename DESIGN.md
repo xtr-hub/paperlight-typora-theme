@@ -4,6 +4,7 @@ name: Paperlight
 description: A quiet stationery-inspired Typora theme and its practical customization workspace.
 colors:
   primary: "#5b7cfa"
+  configuratorAccent: "#202124"
   background: "#f7f6f3"
   surface: "#fffdfa"
   surfaceSecondary: "#f1efe9"
@@ -38,6 +39,8 @@ The editor theme remains the visual authority. `paperlight/style/theme.css` owns
 ## Colors
 
 Warm paper and restrained borders organize the light theme; dark mode uses charcoal surfaces with the same hierarchy. Blue is the default adjustable accent, used for focus, selection, and small emphasis. Text and control states must remain legible when the accent or the document background changes.
+
+The configurator shell uses charcoal (`--ui-accent: #202124`) for its controls, primary action, and focus indicators. Its interface color stays independent of the document's adjustable accent. Range controls place the setting name on the left and the value with its unit together on the right.
 
 ## Typography
 
