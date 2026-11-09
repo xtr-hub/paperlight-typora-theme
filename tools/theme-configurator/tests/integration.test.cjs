@@ -7,7 +7,7 @@ const { execFileSync } = require('node:child_process');
 const { chromium } = require('../../demo-shots/node_modules/playwright-core');
 
 const root = path.resolve(__dirname, '../../..');
-const built = path.join(root, 'dist/theme-configurator');
+const built = path.join(root, 'dist');
 const edge = process.env.BROWSER_PATH || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const prefix = '/nested/site/';
 const png = fs.readFileSync(path.join(root, 'docs/img/readme/list-normal-1.png'));
@@ -17,8 +17,7 @@ before(async () => {
   execFileSync(process.execPath, [path.join(root, 'tools/theme-configurator/build.mjs')], { cwd: root });
   server = http.createServer((req, res) => {
     const url = new URL(req.url, 'http://localhost');
-    if (!url.pathname.startsWith(prefix)) { res.writeHead(404).end(); return; }
-    let relative = decodeURIComponent(url.pathname.slice(prefix.length));
+    let relative = decodeURIComponent(url.pathname.startsWith(prefix) ? url.pathname.slice(prefix.length) : url.pathname.slice(1));
     if (!relative || relative.endsWith('/')) relative += 'index.html';
     const file = path.resolve(built, relative);
     if (!file.startsWith(built + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) { res.writeHead(404).end(); return; }
@@ -43,7 +42,8 @@ async function openPage() {
   const failed = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400 && !response.url().endsWith('/favicon.ico')) failed.push(response.url()); });
-  await page.goto(base + 'tools/theme-configurator/');
+  await page.goto(base);
+  assert.equal(page.url(), base, 'the deployed root must open the app without a redirect');
   await page.frameLocator('#preview').locator('#write').waitFor();
   return { context, page, errors, failed };
 }
@@ -106,8 +106,8 @@ test('built site works under a subpath; custom images, coordinates, generated CS
     assert.match(files['onelight-dark.user.css'], /data:image\/png;base64/);
     for (const theme of ['light', 'dark']) {
       const validation = await context.newPage();
-      await validation.goto(base + 'tools/theme-configurator/preview.html');
-      await validation.locator('#theme-css').evaluate((link, name) => { link.href = name === 'dark' ? '../../onelight-dark.css' : '../../onelight.css'; }, theme);
+      await validation.goto(base + 'preview.html');
+      await validation.locator('#theme-css').evaluate((link, name) => { link.href = name === 'dark' ? './onelight-dark.css' : './onelight.css'; }, theme);
       await validation.addStyleTag({ content: files[theme === 'light' ? 'onelight.user.css' : 'onelight-dark.user.css'] });
       const styles = await validation.evaluate(() => {
         const body = getComputedStyle(document.body);
@@ -162,5 +162,23 @@ test('invalid imported configuration is rejected without changing current settin
     await page.locator('#importConfig').setInputFiles({ name:'broken.json', mimeType:'application/json', buffer: Buffer.from('{"version":1,"settings":{"accentColor":"not-a-color"}}') });
     await page.locator('#status').filter({ hasText: '导入失败' }).waitFor();
     assert.equal(await page.locator('#accentColor').inputValue(), '#123456');
+  } finally { await context.close(); }
+});
+
+test('the generated site also works at the domain root', async () => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const failed = [];
+  page.on('response', response => { if (response.status() >= 400 && !response.url().endsWith('/favicon.ico')) failed.push(response.url()); });
+  try {
+    const rootUrl = new URL('/', base).href;
+    await page.goto(rootUrl);
+    assert.equal(page.url(), rootUrl);
+    const preview = page.frameLocator('#preview');
+    await preview.locator('#write').waitFor();
+    await page.locator('[data-preview-theme="dark"]').click();
+    await page.waitForTimeout(300);
+    assert.match(await preview.locator('content').evaluate(el => getComputedStyle(el, '::after').backgroundImage), /onelight\/img\/mutou2\.gif/);
+    assert.deepEqual(failed, []);
   } finally { await context.close(); }
 });

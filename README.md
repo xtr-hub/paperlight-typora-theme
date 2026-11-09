@@ -311,6 +311,8 @@ node tools/theme-configurator/serve.mjs
 
 访问 `http://127.0.0.1:4173/tools/theme-configurator/`。在 Typora 的「偏好设置 → 外观」中打开主题文件夹，在网页中选择该文件夹并保存；也可以下载 CSS 后手动放入。Typora 会加载 `onelight.user.css` 与 `onelight-dark.user.css`，重启或切换主题后生效。直接保存会保留文件中已有的其他自定义 CSS。
 
-网站本身是纯静态的。运行 `node tools/theme-configurator/build.mjs` 后，可将 `dist/theme-configurator/` 整个目录部署到静态托管服务，不需要运行后端。目录直接写入需要支持 File System Access API 的浏览器及 HTTPS 或 localhost；其他环境可以下载 CSS 手动安装。
+网站本身是纯静态的。运行 `node tools/theme-configurator/build.mjs` 后，可将 `dist/` 作为发布目录部署到静态托管服务，不需要运行后端。`dist/` 是生成产物，不提交到仓库。目录直接写入需要支持 File System Access API 的浏览器及 HTTPS 或 localhost；其他环境可以下载 CSS 手动安装。
+
+仓库内已提供 GitHub Pages 工作流：在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions** 后，推送到 `onelight` 分支将自动构建并部署。部署状态和网站地址可在 Actions 工作流运行记录中查看。
 
 完整说明见 [tools/theme-configurator/README.md](tools/theme-configurator/README.md)。

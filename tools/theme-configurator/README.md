@@ -35,7 +35,13 @@ Typora 会加载同目录下的 `onelight.user.css` 和 `onelight-dark.user.css`
 node tools/theme-configurator/build.mjs
 ```
 
-将生成的 `dist/theme-configurator/` **整个目录**作为静态网站根目录上传到任意静态托管服务。构建结果包含入口、设置页、预览和 OneLight 所需样式、字体与内置图片；支持部署在网站子路径下。运行时不需要 Node.js 或后端服务，Node.js 仅用于本地构建与预览。
+将生成的 `dist/` **整个目录**作为静态网站根目录上传到任意静态托管服务。`dist/index.html` 是网页入口，构建结果还包含预览和 OneLight 所需样式、字体与内置图片；支持部署在网站子路径下。`dist/` 是构建产物，不会提交到 Git。运行时不需要 Node.js 或后端服务，Node.js 仅用于本地构建与预览。
+
+### 使用 GitHub Pages 自动部署
+
+1. 在 GitHub 仓库的 **Settings → Pages → Build and deployment** 中，将 **Source** 设置为 **GitHub Actions**。
+2. 将更改推送到 `onelight` 分支。仓库自带的 `Deploy theme configurator` 工作流会执行构建，将 `dist/` 上传为 Pages 工件并部署。
+3. 在仓库 **Actions → Deploy theme configurator** 中查看运行状态和部署地址。也可以从工作流页面手动运行；如果 `github-pages` 环境配置了分支限制，需要允许 `onelight` 分支。
 
 使用 HTTPS 才能在支持的浏览器中授权写入本地主题目录。其他浏览器仍可预览、导入和导出，并通过下载 CSS 手动安装。
 
