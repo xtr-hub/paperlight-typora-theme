@@ -8,10 +8,10 @@ const toolDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(toolDir, '../..');
 const outputDir = path.resolve(repoRoot, 'dist');
 await mkdir(outputDir, { recursive: true });
-for (const file of ['onelight.css', 'onelight-dark.css']) {
+for (const file of ['paperlight.css', 'paperlight-dark.css', 'onelight.css', 'onelight-dark.css']) {
   await cp(path.join(repoRoot, file), path.join(outputDir, file));
 }
-await cp(path.join(repoRoot, 'onelight'), path.join(outputDir, 'onelight'), { recursive: true });
+await cp(path.join(repoRoot, 'paperlight'), path.join(outputDir, 'paperlight'), { recursive: true });
 
 for (const entry of await readdir(toolDir, { withFileTypes: true })) {
   if (entry.isFile() && /\.(html|css|js)$/.test(entry.name)) {
@@ -21,7 +21,7 @@ for (const entry of await readdir(toolDir, { withFileTypes: true })) {
       // In the repository the preview lives two levels below the theme;
       // the deployable preview and theme entries share the output root.
       const preview = await readFile(source, 'utf8');
-      await writeFile(target, preview.replaceAll('../../onelight', './onelight'));
+      await writeFile(target, preview.replaceAll('../../paperlight', './paperlight'));
     } else {
       await cp(source, target);
     }

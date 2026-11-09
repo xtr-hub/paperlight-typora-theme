@@ -1,318 +1,131 @@
-<h1 align='center'>OneLight Theme For Typora</h1>
+<h1 align='center'>Paperlight Theme For Typora</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/unofficial%20community%20fork-xtr--hub-blue?labelColor=grey" alt="Unofficial Community Fork">
-  <img src="https://img.shields.io/github/last-commit/xtr-hub/typora-onelight-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4&labelColor=grey&color=green" alt="Last Commit">
-  <img src="https://img.shields.io/github/stars/xtr-hub/typora-onelight-theme?labelColor=grey&color=yellow" alt="Stars">
-  <img src="https://img.shields.io/github/issues/xtr-hub/typora-onelight-theme?label=Issues&labelColor=grey&color=orange" alt="Issues">
+  <img src="https://img.shields.io/github/last-commit/xtr-hub/paperlight-typora-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4&labelColor=grey&color=green" alt="Last Commit">
+  <img src="https://img.shields.io/github/stars/xtr-hub/paperlight-typora-theme?labelColor=grey&color=yellow" alt="Stars">
+  <img src="https://img.shields.io/github/issues/xtr-hub/paperlight-typora-theme?label=Issues&labelColor=grey&color=orange" alt="Issues">
 </p>
 
 > [!note]
 > **关于本仓库**
 >
-> 本仓库是 [caolib/typora-onelight-theme](https://github.com/caolib/typora-onelight-theme) 的**非官方社区 fork**，与原仓库及原作者 @caolib 无关联，也未获得任何形式的授权或移交。在此感谢原作者创作了这套主题。
+> Paperlight 由 [caolib/typora-onelight-theme](https://github.com/caolib/typora-onelight-theme) 演化而来，感谢原作者 @caolib 创作了原主题。本仓库属于 [Typora 官方主题仓库](https://github.com/typora/theme.typora.io)的 fork 网络。
 >
-> 由于原仓库已停止更新，本仓库由使用者 [@xtr-hub](https://github.com/xtr-hub) 自发进行日常维护（修复问题、跟进 Typora 更新等），并在本仓库独立发布版本，仅供参考学习。
-
+> 本项目由社区独立维护，与 Typora 官方及原主题作者没有官方关联，也未获得授权或移交。
 <p align="center">
 	简体中文 |
-	<a href="https://zdoc.app/de/xtr-hub/typora-onelight-theme">Deutsch</a> | 
-	<a href="https://zdoc.app/en/xtr-hub/typora-onelight-theme">English</a> | 
-	<a href="https://zdoc.app/es/xtr-hub/typora-onelight-theme">Español</a> | 
-	<a href="https://zdoc.app/fr/xtr-hub/typora-onelight-theme">français</a> | 
-	<a href="https://zdoc.app/ja/xtr-hub/typora-onelight-theme">日本語</a> | 
-	<a href="https://zdoc.app/ko/xtr-hub/typora-onelight-theme">한국어</a> | 
-	<a href="https://zdoc.app/pt/xtr-hub/typora-onelight-theme">Português</a> | 
-	<a href="https://zdoc.app/ru/xtr-hub/typora-onelight-theme">Русский</a>
+	<a href="https://zdoc.app/de/xtr-hub/paperlight-typora-theme">Deutsch</a> |
+	<a href="https://zdoc.app/en/xtr-hub/paperlight-typora-theme">English</a> |
+	<a href="https://zdoc.app/es/xtr-hub/paperlight-typora-theme">Español</a> |
+	<a href="https://zdoc.app/fr/xtr-hub/paperlight-typora-theme">français</a> |
+	<a href="https://zdoc.app/ja/xtr-hub/paperlight-typora-theme">日本語</a> |
+	<a href="https://zdoc.app/ko/xtr-hub/paperlight-typora-theme">한국어</a> |
+	<a href="https://zdoc.app/pt/xtr-hub/paperlight-typora-theme">Português</a> |
+	<a href="https://zdoc.app/ru/xtr-hub/paperlight-typora-theme">Русский</a>
 </p>
 
 
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/xtr-hub/typora-onelight-theme/total?labelColor=grey&color=blue" alt="Downloads">
-  <img src="https://img.shields.io/github/v/release/xtr-hub/typora-onelight-theme?labelColor=grey&color=red" alt="Release">
-  <img src="https://img.shields.io/github/license/xtr-hub/typora-onelight-theme" alt="License">
+  <img src="https://img.shields.io/github/downloads/xtr-hub/paperlight-typora-theme/total?labelColor=grey&color=blue" alt="Downloads">
+  <img src="https://img.shields.io/github/v/release/xtr-hub/paperlight-typora-theme?labelColor=grey&color=red" alt="Release">
+  <img src="https://img.shields.io/github/license/xtr-hub/paperlight-typora-theme" alt="License">
 </p>
 
-## 1.概览
+## 主题预览
 
----
+Paperlight 是一款适用于 Typora 的浅色与深色主题，提供代码高亮、表格、引用和提示框样式。可以通过可视化设置页调整配色、字体、背景和表情包。
 
-![image-20250531153638583](docs/img/readme/overview-1.png)
+以下截图为浏览器中的示例预览，Typora 的实际界面可能略有不同。
 
-![image-20250531153718830](docs/img/readme/overview-2.png)
+**浅色主题**
 
-![image-20250511190116728](docs/img/readme/overview-3.png)
+![Paperlight 浅色主题预览](docs/img/readme/theme-preview-light.png)
 
-![image-20250511184920000](docs/img/readme/overview-4.png)
+**深色主题**
 
-![image-20250511200329113](docs/img/readme/overview-5.png)
+![Paperlight 深色主题预览](docs/img/readme/theme-preview-dark.png)
 
-![image-20250511185936255](docs/img/readme/overview-6.png)
+## 安装主题
 
-<details><summary><kbd>展开查看更多截图</summary></kbd>
-  <img src="docs/img/readme/overview-more-1.png"></br>
-  <img src="docs/img/readme/overview-more-2.png"></br>
-  <img src="docs/img/readme/overview-more-3.png"></br>
-  <img src="docs/img/readme/overview-more-4.png"></br>
-  <img src="docs/img/readme/overview-more-5.png"></br>
-  <img src="docs/img/readme/overview-more-6.png"></br>
-</details>
+1. 下载 [paperlight 分支源码 ZIP](https://github.com/xtr-hub/paperlight-typora-theme/archive/refs/heads/paperlight.zip) 并解压。
+2. 在 Typora 中打开 **偏好设置 → 外观 → 打开主题文件夹**。
+3. 将解压后目录内的 <code>paperlight.css</code>、<code>paperlight-dark.css</code> 和整个 <code>paperlight/</code> 文件夹复制到打开的主题文件夹中。不要把它们放在额外一层项目文件夹里。
+4. 重启 Typora，在 **主题** 菜单选择 **Paperlight** 或 **Paperlight Dark**。
 
+> [!NOTE]
+> 原 OneLight 仓库中的历史 Release 早于 Paperlight，不能保证兼容新版设置页。请安装上述 <code>paperlight</code> 分支的当前版本。
 
----
+也可以克隆源码，再按第 2～4 步复制主题文件：
 
-## 2.如何使用
+~~~bash
+git clone --single-branch --branch paperlight https://github.com/xtr-hub/paperlight-typora-theme.git
+~~~
 
-下面两种办法视自己方便程度选一种即可
+安装后的目录结构：
 
-### 2.1 下载文件（推荐）
+~~~text
+themes/
+├── paperlight.css                  # 浅色主题入口
+├── paperlight-dark.css             # 深色主题入口
+├── paperlight.user.css             # 浅色个人配置，可选
+├── paperlight-dark.user.css        # 深色个人配置，可选
+└── paperlight/
+    ├── fonts/                    # 随主题提供的字体
+    ├── img/                      # 随主题提供的图片
+    └── style/
+        ├── theme.css             # 浅色主题样式
+        └── theme-dark.css        # 深色主题变量覆盖
+~~~
 
-> 1. 下载[主题文件压缩包](https://github.com/xtr-hub/typora-onelight-theme/releases)
-> 2. 在typora中选择 文件 → 偏好设置 → 外观 → 打开主题文件夹
-> 3. 将下载的压缩包解压，将**css文件**和**文件夹**粘贴到typora的主题文件夹themes中
-> 4. 重启Typora然后在菜单栏切换主题，大功告成
->
-> 这种方法的优点是下载的文件更少，只含有主题必须的文件，缺点是比较麻烦，如果后续想要更新需要重新下载进行替换
+更新主题时，重新复制两个主题入口和 <code>paperlight/</code> 资源目录；保留两个 <code>.user.css</code> 文件即可保留个人配置。
 
-### 2.2 克隆
+## 在线配置外观
 
-> [!caution]
->
-> 1. 同上找到typora的主题文件夹themes，在这个文件夹下打开一个终端
->
-> 2. **为了避免克隆到其他分支的无关文件，请一定要使用下面这条命令克隆！！否则你要下载很长时间**（项目fork自官方仓库，提交历史包含了gh-pages分支的记录）
->
->    ```shell
->    git clone --single-branch https://github.com/xtr-hub/typora-onelight-theme.git
->    ```
->
-> 这种方法的优点是比较方便，后续更新只需要`git pull`命令即可获取最新的提交，缺点是clone会将整个项目的文件下载下来，包括一些不必要的md文件等
+打开 **[Paperlight 主题设置页](https://xtr-hub.github.io/paperlight-typora-theme/)**，调整后可以实时预览浅色和深色主题：
 
----
+- 选择强调色、字体、字号、行高、内容宽度、圆角和标题装饰。
+- 使用内置图片、本地图片或 HTTP(S) 链接自定义页面背景与表情包；可调整背景位置、平铺和遮罩，以及表情包的四角位置、边距、大小和透明度。
+- 设置自动保存在当前浏览器中，也可以导出 JSON，之后重新导入。清除浏览器数据或更换浏览器前，请先导出配置。
 
-## 3.关于自定义
+![Paperlight 在线主题设置页](docs/img/readme/theme-configurator.png)
 
-### 3.1 文件夹结构
+设置完成后，选择 Typora 的主题文件夹并点击 **保存到主题文件夹**，然后重启 Typora 或切换一次主题。页面会写入 <code>paperlight.user.css</code> 和 <code>paperlight-dark.user.css</code> 中的配置块，保留文件中的其他自定义 CSS；不会安装或替换主题本体。刷新网页后需重新选择文件夹。
 
-```
-📂 themes                              # Typora 主题根目录
-├── 📂 onelight                        # OneLight 主题资源目录
-│   ├── 📂 fonts                       # 字体资源目录
-│   │   ├── CascadiaCode.woff2        
-│   │   └── MiaoZi-GuoZhiTi.woff2     
-│   ├── 📂 img                         # 图片资源目录
-│   │   ├── bg.gif                     
-│   │   ├── ...                                  
-│   └── 📂 style                       # 样式文件目录
-│       ├── blockquote.css             # 引用块样式
-│       ├── code.css                   # 代码块样式
-│       ├── editor.css                 # 编辑器样式
-│       └── ...
-├── onelight-dark.css                  # OneLight 暗色主题样式文件
-├── onelight.css                       # OneLight 主题的主样式文件
-├── onelight.user.css                  # 用户自定义样式文件（仓库中没有，有需要自己创建，样式优先级高）
-└── onelight-dark.user.css             # 同上，但是深色主题自定义样式文件
-```
+文件夹直接写入需要用户授权，以及支持 File System Access API 的浏览器；不支持时可下载或复制两个 CSS 文件，手动放入主题文件夹。已有同名文件时，请先合并或备份原文件，避免覆盖自己写的样式。
 
-### 3.2 自定义配置
+本地图片支持 PNG、JPEG、GIF、WebP、AVIF，单张不超过 8 MB，会嵌入导出的 CSS 和配置文件；图片链接则依赖网络和链接可用性。
 
-如果你想添加一些自己的样式，不建议你直接修改`onelight.css`文件。
+## 从旧版 OneLight 迁移
 
-你可以在`onelight.css`同级目录下新建一个`onelight.user.css`文件，将你的样式放在这个文件，它有更高的优先级，而且你后续要更新只需要更新`onelight.css`，不会覆盖你的样式
+旧版 <code>onelight.css</code> 和 <code>onelight-dark.css</code> 可继续作为兼容入口使用。要在 Paperlight 主题中沿用个人样式，请在主题文件夹中将已有的 <code>onelight.user.css</code> 和 <code>onelight-dark.user.css</code> 分别复制为 <code>paperlight.user.css</code> 和 <code>paperlight-dark.user.css</code>，并保留原文件作为备份；如果目标文件已存在，请先检查并合并内容。设置页也支持导入旧版导出的 JSON 配置。
 
-⚠️暗色主题添加`onelight-dark.user.css`文件
+## 手动添加样式
 
-如果`onelight.user.css`无效，你可能要添加`!important`提高优先级
+可以在主题目录中创建 <code>paperlight.user.css</code>（浅色）或 <code>paperlight-dark.user.css</code>（深色）来添加个人 CSS。Typora 会在对应主题之后加载这些文件；通常无需修改主题源码。设置页会为自动生成的区块添加标记，区块外的自定义样式不会被页面直接保存时覆盖。
 
-### 3.3 历史风格参考
+## 本地运行与静态部署
 
-以下通过注释导入语句切换风格的说明和截图适用于旧版主题。当前版本统一使用 `onelight/style/theme.css`，建议通过 [主题设置页](#8主题设置页与静态部署)调整外观。
+在仓库根目录运行：
 
-> [!important]
->
-> **如何切换风格?**
->
-> 浅色主题修改`onelight.css`,深色主题修改`onelight-dark.css`
->
-> 在文件顶部有类似下面的导入语句，可以选择性**注释**和**取消注释**来修改选择对应的风格
->
-> ```css
-> // ...exist code
-> 
-> /* 引用块，警告框样式 依次为 原样式 默认*/
-> /* @import './onelight/style/blockquote/blockquote.css'; */
-> @import './onelight/style/blockquote/blockquote2.css';
-> 
-> // ...exist code
-> ```
->
-> 比如我要切换引用块、警告框样式风格为“原样式”，可以这样改，以此类推，其他风格的选择不再赘述
->
-> ```css
-> // ...exist code
-> 
-> /* 引用块，警告框样式 依次为 原样式 默认*/
-> @import './onelight/style/blockquote/blockquote.css';
-> /* @import './onelight/style/blockquote/blockquote2.css'; */
-> 
-> // ...exist code
-> ```
-
-#### 3.2.1 标题
-
-<div align="center">
-  <table>
-    <tr>
-      <th>默认</th>
-      <th>彩色</th>
-    </tr>
-    <tr>
-      <td><img src="docs/img/readme/heading-default-1.png"/></td>
-      <td><img src="docs/img/readme/heading-colorful-1.gif"/></td>
-    <tr>
-	    <td><img src="docs/img/readme/heading-default-2.png"/></td>
-      <td><img src="docs/img/readme/heading-colorful-2.gif"/></td>
-  </table>
-</div>
-
-#### 3.2.2 列表
-
-> [!warning]
->
-> 默认风格某些情况下会出现[错位](https://github.com/xtr-hub/typora-onelight-theme/issues)（已知问题）
-
-<div align="center">
-  <table>
-    <tr>
-      <th>默认</th>
-      <th>普通</th>
-    </tr>
-    <tr>
-      <td><img src="docs/img/readme/list-default-1.png"/></td>
-      <td><img src="docs/img/readme/list-normal-1.png"/></td>
-    </tr>
-    <tr>
-	    <td><img src="docs/img/readme/list-default-2.png"/></td>
-      <td><img src="docs/img/readme/list-normal-2.png"/></td>
-    </tr>
-  </table>
-</div>
-
-#### 3.2.3 警告框
-
-<div align="center">
-  <table>
-    <tr>
-      <th>默认</th>
-      <th>原样式</th>
-    </tr>
-    <tr>
-      <td><img src="docs/img/readme/warning-default-1.png"/></td>
-      <td><img src="docs/img/readme/warning-original-1.png"/></td>
-    </tr>
-    <tr>
-	    <td><img src="docs/img/readme/warning-default-2.png"/></td>
-      <td><img src="docs/img/readme/warning-original-2.png"/></td>
-    </tr>
-  </table>
-</div>
-
-#### 3.2.4 背景
-
-动态星空背景针对暗色主题，在`onelight-dark.user.css`顶部添加:
-
-```css
-@import './onelight/style/background/grok.css';
-@import './onelight/style/background/grok-gpu.css';
-```
-
-<div align="center">
-  <table>
-    <tr>
-      <th>默认</th>
-      <th>动态星空</th>
-    </tr>
-    <tr>
-      <td><img src="docs/img/readme/background-default.png"/></td>
-      <td><img src="docs/img/readme/background-galaxy.gif"/></td> 
-    </tr>
-  </table>
-</div>
-
-## 4.关于字体
-
-在`font.css`文件设置了默认字体，可以自行修改，如果需要导入字体文件，可在`font.css`中配置
-
----
-
-## 5.背景图片
-
-当前版本可以直接在[主题设置页](#8主题设置页与静态部署)选择自定义背景和表情包。以下手动修改 `editor.css` 的说明适用于旧版主题。
-
-> [!important]
->
-> 背景图片在`onelight/img`文件夹下，另外仓库`docs/img`路径下也有一些其他图片可以使用，你也可以添加自己的图片（最好使用透明背景的图片），然后在`editor.css`文件中搜索关键字 `背景图片`找到下面代码替换图片名
->
-> ```css
-> div#megamenu-section-open {
->     // ...
->     background-image: url('../img/mutou.gif');
->     // ...
-> }
-> 
-> content {
->     //...
->     background-image: url('../img/mutou.gif');
->     //...
-> }
-> ```
->
-> <img src="docs/img/readme/background-image-preview.png" style="zoom: 50%;" />
-
----
-
-## 6.其他
-
-<img align='right' src="docs/img/readme/star.png" alt="喜欢" />⭐ 如果喜欢主题的话，请给一个star吧，感谢🙏！
-
-✅ 一体化模式下主题效果更佳✨
-
-❓ 有问题可以在 [Issues](https://github.com/xtr-hub/typora-onelight-theme/issues) 提问，欢迎各种意见
-
-📄 [docs](https://github.com/xtr-hub/typora-onelight-theme/tree/onelight/docs)文件夹中有示例文章的markdown文件📄
-
-🖼️ [img](https://github.com/xtr-hub/typora-onelight-theme/tree/onelight/onelight/img)文件夹中有主题的背景图片，如果不需要可以直接删除
-
----
-
-## 7.演示图片自动采集
-
-仓库提供了一个基于 **Typora 官方 theme toolkit `html-preview`** 的截图工具，用于自动生成浅色/深色主题的预览图片。它直接使用官方预览页，不再自己实现 Markdown 渲染器，也不会控制 Typora 或桌面。
-
-```bash
-cd tools/demo-shots
-npm install
-npm run shots
-```
-
-首次运行会自动拉取官方 toolkit。生成结果默认在 `docs/img/preview/`，详细用法和限制见 [tools/demo-shots/README.md](tools/demo-shots/README.md)。
-
----
-
-## 8.主题设置页与静态部署
-
-可视化设置页支持浅色、深色实时预览，调整强调色、排版和圆角，使用本地图片或链接自定义背景和表情包，并调节它们的位置和尺寸。设置可以导出为 JSON，也可以重新导入。
-
-先安装本仓库版本的主题，然后在仓库根目录启动本地预览：
-
-```bash
+~~~bash
 node tools/theme-configurator/serve.mjs
-```
+~~~
 
-访问 `http://127.0.0.1:4173/tools/theme-configurator/`。在 Typora 的「偏好设置 → 外观」中打开主题文件夹，在网页中选择该文件夹并保存；也可以下载 CSS 后手动放入。Typora 会加载 `onelight.user.css` 与 `onelight-dark.user.css`，重启或切换主题后生效。直接保存会保留文件中已有的其他自定义 CSS。
+随后访问 <http://127.0.0.1:4173/tools/theme-configurator/>。要构建静态站点，运行：
 
-网站本身是纯静态的。运行 `node tools/theme-configurator/build.mjs` 后，可将 `dist/` 作为发布目录部署到静态托管服务，不需要运行后端。`dist/` 是生成产物，不提交到仓库。目录直接写入需要支持 File System Access API 的浏览器及 HTTPS 或 localhost；其他环境可以下载 CSS 手动安装。
+~~~bash
+node tools/theme-configurator/build.mjs
+~~~
 
-仓库内已提供 GitHub Pages 工作流：在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions** 后，推送到 `onelight` 分支将自动构建并部署。部署状态和网站地址可在 Actions 工作流运行记录中查看。
+将生成的 <code>dist/</code> 用作静态网站发布目录，<code>dist/index.html</code> 为入口。运行时不需要后端；<code>dist/</code> 是构建产物，不提交到 Git。浏览器直接写入主题目录需要 HTTPS 或 localhost 和用户授权。
 
-完整说明见 [tools/theme-configurator/README.md](tools/theme-configurator/README.md)。
+仓库提供 GitHub Pages 工作流。将仓库 **Settings → Pages → Build and deployment → Source** 设为 **GitHub Actions** 后，推送到 <code>paperlight</code> 分支会自动构建和部署。更多使用、部署和测试细节见 [设置页说明](tools/theme-configurator/README.md)。
+
+## 其他
+
+- [示例 Markdown 文档](docs/demo.md)
+- [主题截图工具](tools/demo-shots/README.md)
+- [反馈问题与建议](https://github.com/xtr-hub/paperlight-typora-theme/issues)
+
+喜欢这个主题的话，欢迎给仓库点个 Star！

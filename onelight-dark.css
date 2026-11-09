@@ -1,2 +1,2 @@
-@import './onelight.css';
-@import './onelight/style/theme-dark.css';
+/* Compatibility entry for existing OneLight installations. */
+@import './paperlight-dark.css';

@@ -4,8 +4,12 @@
 
 !onelight.css
 !onelight-dark.css
+!paperlight.css
+!paperlight-dark.css
 !/onelight/
 !/onelight/**
+!/paperlight/
+!/paperlight/**
 !/docs/**
 !/docs/
 !LICENSE

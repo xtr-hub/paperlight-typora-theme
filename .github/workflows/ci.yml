@@ -90,7 +90,7 @@ jobs:
           echo "" >> complete_notes.txt
           cat release_notes.txt >> complete_notes.txt
           echo "" >> complete_notes.txt
-          echo "[Full Changelog](https://github.com/xtr-hub/typora-onelight-theme/commits/${{ github.ref }})" >> complete_notes.txt
+          echo "[Full Changelog](https://github.com/xtr-hub/paperlight-typora-theme/commits/${{ github.ref }})" >> complete_notes.txt
 
           # 将提交信息保存到环境变量，用于后续步骤
           # 使用EOF方式确保多行文本正确保存
@@ -101,20 +101,20 @@ jobs:
       - name: 打包文件
         run: |
           echo ${{ env.TAG_NAME }}
-          # 1) 全量包（包含 onelight 目录下全部资源）
-          zip -r onelight-${{ env.TAG_NAME }}.zip ./onelight.css ./onelight-dark.css ./onelight
+          # 1) 全量包（包含 paperlight 目录下全部资源）
+          zip -r paperlight-${{ env.TAG_NAME }}.zip ./paperlight.css ./paperlight-dark.css ./paperlight ./onelight.css ./onelight-dark.css
 
-          # 2) 无图片包（排除 onelight/img）
-          zip -r onelight-${{ env.TAG_NAME }}-noimg.zip ./onelight.css ./onelight-dark.css ./onelight \
-            -x "onelight/img/*" "onelight/img/**"
+          # 2) 无图片包（排除 paperlight/img）
+          zip -r paperlight-${{ env.TAG_NAME }}-noimg.zip ./paperlight.css ./paperlight-dark.css ./paperlight ./onelight.css ./onelight-dark.css \
+            -x "paperlight/img/*" "paperlight/img/**"
 
-          # 3) 无字体包（排除 onelight/fonts）
-          zip -r onelight-${{ env.TAG_NAME }}-nofont.zip ./onelight.css ./onelight-dark.css ./onelight \
-            -x "onelight/fonts/*" "onelight/fonts/**"
+          # 3) 无字体包（排除 paperlight/fonts）
+          zip -r paperlight-${{ env.TAG_NAME }}-nofont.zip ./paperlight.css ./paperlight-dark.css ./paperlight ./onelight.css ./onelight-dark.css \
+            -x "paperlight/fonts/*" "paperlight/fonts/**"
 
           # 4) 最小包（排除字体和图片）
-          zip -r onelight-${{ env.TAG_NAME }}-minimal.zip ./onelight.css ./onelight-dark.css ./onelight \
-            -x "onelight/fonts/*" "onelight/fonts/**" "onelight/img/*" "onelight/img/**"
+          zip -r paperlight-${{ env.TAG_NAME }}-minimal.zip ./paperlight.css ./paperlight-dark.css ./paperlight ./onelight.css ./onelight-dark.css \
+            -x "paperlight/fonts/*" "paperlight/fonts/**" "paperlight/img/*" "paperlight/img/**"
 
       - name: 创建发布并上传文件
         env:
@@ -130,8 +130,8 @@ jobs:
           fi
 
           gh release upload "$TAG_NAME" \
-            "onelight-$TAG_NAME.zip" \
-            "onelight-$TAG_NAME-noimg.zip" \
-            "onelight-$TAG_NAME-nofont.zip" \
-            "onelight-$TAG_NAME-minimal.zip" \
+            "paperlight-$TAG_NAME.zip" \
+            "paperlight-$TAG_NAME-noimg.zip" \
+            "paperlight-$TAG_NAME-nofont.zip" \
+            "paperlight-$TAG_NAME-minimal.zip" \
             --clobber

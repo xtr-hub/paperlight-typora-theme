@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link id="theme-css" rel="stylesheet" href="../../onelight.css">
+  <link id="theme-css" rel="stylesheet" href="../../paperlight.css">
 </head>
 <body>
 <content>
   <div id="write">
-    <h1>OneLight</h1>
+    <h1>Paperlight</h1>
 
     <div class="md-toc">
       <p class="md-toc-content">
-        <span class="md-toc-item md-toc-h1"><a class="md-toc-inner" href="#">OneLight</a></span>
+        <span class="md-toc-item md-toc-h1"><a class="md-toc-inner" href="#">Paperlight</a></span>
         <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#">排版与节奏</a></span>
       </p>
     </div>
@@ -41,7 +41,7 @@
     </ol>
 
     <h3>代码</h3>
-    <pre class="md-fences md-end-block ty-contain-cm" lang="javascript"><div class="CodeMirror cm-s-inner"><div class="CodeMirror-code"><div><pre class="CodeMirror-line"><span class="cm-keyword">const</span> <span class="cm-def">theme</span> <span class="cm-operator">=</span> <span class="cm-string">'onelight'</span>;</pre></div><div><pre class="CodeMirror-line"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'quiet stationery'</span>);</pre></div></div></div></pre>
+    <pre class="md-fences md-end-block ty-contain-cm" lang="javascript"><div class="CodeMirror cm-s-inner"><div class="CodeMirror-code"><div><pre class="CodeMirror-line"><span class="cm-keyword">const</span> <span class="cm-def">theme</span> <span class="cm-operator">=</span> <span class="cm-string">'paperlight'</span>;</pre></div><div><pre class="CodeMirror-line"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'quiet stationery'</span>);</pre></div></div></div></pre>
 
     <h3>表格</h3>
     <figure class="md-table-fig table-figure">
@@ -64,7 +64,7 @@
     const data = event.data;
     if (!data || data.type !== 'config') return;
 
-    themeLink.href = data.theme === 'dark' ? '../../onelight-dark.css' : '../../onelight.css';
+    themeLink.href = data.theme === 'dark' ? '../../paperlight-dark.css' : '../../paperlight.css';
 
     const root = document.documentElement;
     const vars = data.vars || {};

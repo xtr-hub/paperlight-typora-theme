@@ -29,7 +29,7 @@ const MIME_TYPES = {
 };
 
 function printHelp() {
-  console.log(`OneLight official Typora preview screenshot collector
+  console.log(`Paperlight official Typora preview screenshot collector
 
 This tool uses Typora's official theme toolkit html-preview pages.
 It does NOT start or control Typora.
@@ -205,8 +205,8 @@ function createPreviewServer({ themes, pages }) {
         return;
       }
 
-      if (pathname === '/preview/theme/onelight.css') {
-        sendFile(response, path.join(REPO_ROOT, 'onelight.css'));
+      if (pathname === '/preview/theme/paperlight.css') {
+        sendFile(response, path.join(REPO_ROOT, 'paperlight.css'));
         return;
       }
 
@@ -223,9 +223,9 @@ function createPreviewServer({ themes, pages }) {
         return;
       }
 
-      if (pathname.startsWith('/preview/theme/onelight/')) {
-        const relative = pathname.slice('/preview/theme/onelight/'.length);
-        sendFile(response, safeFile(path.join(REPO_ROOT, 'onelight'), relative));
+      if (pathname.startsWith('/preview/theme/paperlight/')) {
+        const relative = pathname.slice('/preview/theme/paperlight/'.length);
+        sendFile(response, safeFile(path.join(REPO_ROOT, 'paperlight'), relative));
         return;
       }
 

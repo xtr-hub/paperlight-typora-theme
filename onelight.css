@@ -1,3 +1,2 @@
-@import './onelight/style/font.css';
-@import './onelight/style/icon.css';
-@import './onelight/style/theme.css';
+/* Compatibility entry for existing OneLight installations. */
+@import './paperlight.css';

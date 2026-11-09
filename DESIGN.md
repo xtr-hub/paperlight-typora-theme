@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: OneLight
+name: Paperlight
 description: A quiet stationery-inspired Typora theme and its practical customization workspace.
 colors:
   primary: "#5b7cfa"
@@ -27,13 +27,13 @@ omitted:
     reason: Spacing follows the existing context-specific CSS rather than a shared numeric scale.
 ---
 
-# OneLight Design System
+# Paperlight Design System
 
 ## Overview
 
-OneLight brings the quiet character of a paper notebook to Markdown editing. The configuration page is a practical companion: it lets a Typora user adjust the theme while seeing a representative document. It uses a product register, with Chinese interface copy and controls that describe their effects directly.
+Paperlight brings the quiet character of a paper notebook to Markdown editing. The configuration page is a practical companion: it lets a Typora user adjust the theme while seeing a representative document. It uses a product register, with Chinese interface copy and controls that describe their effects directly.
 
-The editor theme remains the visual authority. `onelight/style/theme.css` owns the light runtime tokens and component styles, and `onelight/style/theme-dark.css` owns dark token overrides. The configurator's CSS is its application-shell adapter; generated user CSS overrides theme variables without replacing the theme. This document records the existing intent and does not generate runtime tokens.
+The editor theme remains the visual authority. `paperlight/style/theme.css` owns the light runtime tokens and component styles, and `paperlight/style/theme-dark.css` owns dark token overrides. The configurator's CSS is its application-shell adapter; generated user CSS overrides theme variables without replacing the theme. This document records the existing intent and does not generate runtime tokens.
 
 ## Colors
 

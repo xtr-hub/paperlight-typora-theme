@@ -1,9 +1,9 @@
 {
-  "name": "onelight-theme-preview",
+  "name": "paperlight-theme-preview",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Screenshot the official Typora theme toolkit HTML preview with the OneLight theme.",
+  "description": "Screenshot the official Typora theme toolkit HTML preview with the Paperlight theme.",
   "engines": {
     "node": ">=20"
   },

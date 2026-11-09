@@ -1,7 +1,7 @@
 {
   "themes": {
-    "light": "/onelight.css",
-    "dark": "/onelight-dark.css"
+    "light": "/paperlight.css",
+    "dark": "/paperlight-dark.css"
   },
   "pages": {
     "lorem": "html-preview/html/lorem.html",

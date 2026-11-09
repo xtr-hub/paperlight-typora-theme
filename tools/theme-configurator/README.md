@@ -1,6 +1,6 @@
-# OneLight 主题设置页
+# Paperlight 主题设置页
 
-这是一个无需服务端的静态配置工具。可以预览浅色和深色主题，调整颜色、排版、背景和表情包，再把设置应用到已安装的 OneLight 主题。
+这是一个无需服务端的静态配置工具。可以预览浅色和深色主题，调整颜色、排版、背景和表情包，再把设置应用到已安装的 Paperlight 主题。
 
 ## 本地使用
 
@@ -10,14 +10,16 @@
 node tools/theme-configurator/serve.mjs
 ```
 
-在浏览器打开 `http://127.0.0.1:4173/tools/theme-configurator/`。先在 Typora 中安装此仓库版本的 OneLight 主题；设置页只生成自定义覆盖文件，不会安装主题本身。
+在浏览器打开 `http://127.0.0.1:4173/tools/theme-configurator/`。先在 Typora 中安装此仓库版本的 Paperlight 主题；设置页只生成自定义覆盖文件，不会安装主题本身。
 
 1. 调整设置，并在预览中切换浅色或深色主题。
 2. 在 Typora 的「偏好设置 → 外观 → 打开主题文件夹」中找到实际使用的主题目录。
 3. 在设置页选择该文件夹并点击「保存到主题文件夹」。也可以下载两个 CSS 文件，手动放进该目录。
 4. 重启 Typora 或切换一次主题，使新配置生效。
 
-Typora 会加载同目录下的 `onelight.user.css` 和 `onelight-dark.user.css`。直接保存只更新这两个文件中由设置页标记的区块，保留文件内其他自定义 CSS。如果手动安装下载的文件，请先合并或备份已经存在的同名文件。
+Typora 会加载同目录下的 `paperlight.user.css` 和 `paperlight-dark.user.css`。直接保存只更新这两个文件中由设置页标记的区块，保留文件内其他自定义 CSS。如果手动安装下载的文件，请先合并或备份已经存在的同名文件。
+
+从 OneLight 升级时，如果旧的 `onelight.user.css` 或 `onelight-dark.user.css` 包含需要保留的手写样式，请先复制为对应的 `paperlight.user.css` 或 `paperlight-dark.user.css`。设置页会识别并更新复制文件中的旧版 OneLight 配置标记，保留标记之外的内容；旧文件不会被修改。旧版导出的 JSON 仍可导入。在相同浏览器来源下，旧版保存在 IndexedDB 中的设置也会自动恢复；跨浏览器或跨域时请使用 JSON 导入。
 
 ## 图片与配置
 
@@ -35,13 +37,13 @@ Typora 会加载同目录下的 `onelight.user.css` 和 `onelight-dark.user.css`
 node tools/theme-configurator/build.mjs
 ```
 
-将生成的 `dist/` **整个目录**作为静态网站根目录上传到任意静态托管服务。`dist/index.html` 是网页入口，构建结果还包含预览和 OneLight 所需样式、字体与内置图片；支持部署在网站子路径下。`dist/` 是构建产物，不会提交到 Git。运行时不需要 Node.js 或后端服务，Node.js 仅用于本地构建与预览。
+将生成的 `dist/` **整个目录**作为静态网站根目录上传到任意静态托管服务。`dist/index.html` 是网页入口，构建结果还包含预览和 Paperlight 所需样式、字体与内置图片；支持部署在网站子路径下。`dist/` 是构建产物，不会提交到 Git。运行时不需要 Node.js 或后端服务，Node.js 仅用于本地构建与预览。
 
 ### 使用 GitHub Pages 自动部署
 
 1. 在 GitHub 仓库的 **Settings → Pages → Build and deployment** 中，将 **Source** 设置为 **GitHub Actions**。
-2. 将更改推送到 `onelight` 分支。仓库自带的 `Deploy theme configurator` 工作流会执行构建，将 `dist/` 上传为 Pages 工件并部署。
-3. 在仓库 **Actions → Deploy theme configurator** 中查看运行状态和部署地址。也可以从工作流页面手动运行；如果 `github-pages` 环境配置了分支限制，需要允许 `onelight` 分支。
+2. 将更改推送到 `paperlight` 分支。仓库自带的 `Deploy theme configurator` 工作流会执行构建，将 `dist/` 上传为 Pages 工件并部署。
+3. 在仓库 **Actions → Deploy theme configurator** 中查看运行状态和部署地址。也可以从工作流页面手动运行；如果 `github-pages` 环境配置了分支限制，需要允许 `paperlight` 分支。
 
 使用 HTTPS 才能在支持的浏览器中授权写入本地主题目录。其他浏览器仍可预览、导入和导出，并通过下载 CSS 手动安装。
 

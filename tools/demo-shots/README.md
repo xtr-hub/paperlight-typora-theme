@@ -1,11 +1,11 @@
-# OneLight 官方预览页截图工具
+# Paperlight 官方预览页截图工具
 
 使用 **Typora 官方 `typora-theme-toolkit` 的 `html-preview` 页面**采集主题截图。
 
 不再自己实现 Markdown → DOM 渲染器，也不启动、不控制 Typora；只做三件事：
 
 1. 拉取/复用官方 `html-preview`
-2. 把 `onelight.css` / `onelight-dark.css` 注入预览页
+2. 把 `paperlight.css` / `paperlight-dark.css` 注入预览页
 3. 用无头浏览器截图
 
 ## 环境要求
@@ -66,8 +66,8 @@ docs/img/preview/
 ```json
 {
   "themes": {
-    "light": "/onelight.css",
-    "dark": "/onelight-dark.css"
+    "light": "/paperlight.css",
+    "dark": "/paperlight-dark.css"
   },
   "pages": {
     "lorem": "html-preview/html/lorem.html",
@@ -89,7 +89,7 @@ docs/img/preview/
 ## 实现说明
 
 - 主题 CSS 通过本地 HTTP 路由注入，不修改官方 toolkit 文件
-- `onelight.css` 的相对 `@import` 和字体/图片路径会被映射到仓库里的 `onelight/`
+- `paperlight.css` 的相对 `@import` 和字体/图片路径会被映射到仓库里的 `paperlight/`
 - 官方预览页里的旧版 MathJax SVG 使用 `NS1:href`，现代 Chromium 不识别；工具会把它规范化为 `href` / `xlink:href`
 - 旧版预览页的代码块字体颜色、任务列表布局、背景图等问题，工具会用少量截图专用 CSS 修正
 

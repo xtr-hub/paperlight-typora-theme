@@ -51,8 +51,8 @@ async function openPage() {
 async function installDirectoryMock(page) {
   await page.evaluate(() => {
     const files = window.__files = {
-      'onelight.user.css': '/* existing light */\nbody { color: red; }\n',
-      'onelight-dark.user.css': '/* existing dark */\nbody { color: blue; }\n',
+      'paperlight.user.css': '/* existing light */\nbody { color: red; }\n',
+      'paperlight-dark.user.css': '/* existing dark */\nbody { color: blue; }\n',
     };
     window.__failFile = '';
     window.showDirectoryPicker = async () => ({
@@ -100,15 +100,15 @@ test('built site works under a subpath; custom images, coordinates, generated CS
     await page.locator('#saveTheme').click();
     await page.locator('#status').filter({ hasText: '已保存' }).waitFor();
     const files = await page.evaluate(() => window.__files);
-    assert.match(files['onelight.user.css'], /--page-bg-position:\s*20% 75%/);
-    assert.match(files['onelight.user.css'], /--page-bg-overlay:\s*35%/);
-    assert.match(files['onelight.user.css'], /--watermark-left:\s*22px/);
-    assert.match(files['onelight-dark.user.css'], /data:image\/png;base64/);
+    assert.match(files['paperlight.user.css'], /--page-bg-position:\s*20% 75%/);
+    assert.match(files['paperlight.user.css'], /--page-bg-overlay:\s*35%/);
+    assert.match(files['paperlight.user.css'], /--watermark-left:\s*22px/);
+    assert.match(files['paperlight-dark.user.css'], /data:image\/png;base64/);
     for (const theme of ['light', 'dark']) {
       const validation = await context.newPage();
       await validation.goto(base + 'preview.html');
-      await validation.locator('#theme-css').evaluate((link, name) => { link.href = name === 'dark' ? './onelight-dark.css' : './onelight.css'; }, theme);
-      await validation.addStyleTag({ content: files[theme === 'light' ? 'onelight.user.css' : 'onelight-dark.user.css'] });
+      await validation.locator('#theme-css').evaluate((link, name) => { link.href = name === 'dark' ? './paperlight-dark.css' : './paperlight.css'; }, theme);
+      await validation.addStyleTag({ content: files[theme === 'light' ? 'paperlight.user.css' : 'paperlight-dark.user.css'] });
       const styles = await validation.evaluate(() => {
         const body = getComputedStyle(document.body);
         const sticker = getComputedStyle(document.querySelector('content'), '::after');
@@ -142,13 +142,13 @@ test('saving preserves unrelated CSS, replaces generated block and rolls back af
     await page.locator('#status').filter({ hasText: '已保存' }).waitFor();
     await page.locator('#accentColor').fill('#123456');
     await page.locator('#saveTheme').click();
-    await page.waitForFunction(() => window.__files['onelight.user.css'].includes('#123456'));
+    await page.waitForFunction(() => window.__files['paperlight.user.css'].includes('#123456'));
     const saved = await page.evaluate(() => ({ ...window.__files }));
-    assert.match(saved['onelight.user.css'], /existing light/);
-    assert.match(saved['onelight-dark.user.css'], /existing dark/);
-    assert.equal((saved['onelight.user.css'].match(/BEGIN OneLight configurator/g) || []).length, 1);
+    assert.match(saved['paperlight.user.css'], /existing light/);
+    assert.match(saved['paperlight-dark.user.css'], /existing dark/);
+    assert.equal((saved['paperlight.user.css'].match(/BEGIN Paperlight configurator/g) || []).length, 1);
     await page.locator('#accentColor').fill('#aabbcc');
-    await page.evaluate(() => { window.__failFile = 'onelight-dark.user.css'; });
+    await page.evaluate(() => { window.__failFile = 'paperlight-dark.user.css'; });
     await page.locator('#saveTheme').click();
     await page.locator('#status').filter({ hasText: '保存失败' }).waitFor();
     assert.deepEqual(await page.evaluate(() => window.__files), saved);
@@ -165,6 +165,55 @@ test('invalid imported configuration is rejected without changing current settin
   } finally { await context.close(); }
 });
 
+test('migrates copied OneLight CSS blocks without losing surrounding user styles', async () => {
+  const { context, page } = await openPage();
+  try {
+    await installDirectoryMock(page);
+    await page.evaluate(() => {
+      window.__files['paperlight.user.css'] = '/* before */\n/* BEGIN OneLight configurator */\n:root { --accent: red; }\n/* END OneLight configurator */\n/* after */';
+    });
+    await page.locator('#chooseThemeDirectory').click();
+    await page.locator('#saveTheme').click();
+    await page.locator('#status').filter({ hasText: '已保存' }).waitFor();
+    const text = await page.evaluate(() => window.__files['paperlight.user.css']);
+    assert.match(text, /\/\* before \*\//);
+    assert.match(text, /\/\* after \*\//);
+    assert.match(text, /BEGIN Paperlight configurator/);
+    assert.doesNotMatch(text, /BEGIN OneLight configurator/);
+  } finally { await context.close(); }
+});
+
+test('imports settings exported by OneLight', async () => {
+  const { context, page } = await openPage();
+  try {
+    const old = { version: 1, settings: { accentColor: '#123456', watermarkAnchor: 'top-left' } };
+    await page.locator('#importConfig').setInputFiles({ name: 'onelight-settings.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(old)) });
+    await page.locator('#status').filter({ hasText: '配置已导入' }).waitFor();
+    assert.equal(await page.locator('#accentColor').inputValue(), '#123456');
+    assert.equal(await page.locator('#watermarkAnchor').inputValue(), 'top-left');
+  } finally { await context.close(); }
+});
+
+test('restores settings from the existing OneLight browser database', async () => {
+  const { context, page } = await openPage();
+  try {
+    await page.evaluate(() => new Promise((resolve, reject) => {
+      const request = indexedDB.open('onelight-configurator', 1);
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const db = request.result;
+        const tx = db.transaction('settings', 'readwrite');
+        tx.objectStore('settings').put({ version: 1, settings: { accentColor: '#abcdef' } }, 'latest');
+        tx.oncomplete = () => { db.close(); resolve(); };
+        tx.onerror = () => reject(tx.error);
+      };
+    }));
+    await page.reload();
+    await page.locator('#status').filter({ hasText: '恢复' }).waitFor();
+    assert.equal(await page.locator('#accentColor').inputValue(), '#abcdef');
+  } finally { await context.close(); }
+});
+
 test('the generated site also works at the domain root', async () => {
   const context = await browser.newContext();
   const page = await context.newPage();
@@ -178,7 +227,7 @@ test('the generated site also works at the domain root', async () => {
     await preview.locator('#write').waitFor();
     await page.locator('[data-preview-theme="dark"]').click();
     await page.waitForTimeout(300);
-    assert.match(await preview.locator('content').evaluate(el => getComputedStyle(el, '::after').backgroundImage), /onelight\/img\/mutou2\.gif/);
+    assert.match(await preview.locator('content').evaluate(el => getComputedStyle(el, '::after').backgroundImage), /paperlight\/img\/mutou2\.gif/);
     assert.deepEqual(failed, []);
   } finally { await context.close(); }
 });

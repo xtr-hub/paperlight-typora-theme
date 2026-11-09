@@ -275,7 +275,7 @@ function cssFor(theme) {
   const body = Object.entries(vars)
     .map(([key, value]) => `    ${key}: ${value};`)
     .join('\n');
-  return `/* BEGIN OneLight configurator */\nhtml:root:root {\n${body}\n}\n/* END OneLight configurator */\n`;
+  return `/* BEGIN Paperlight configurator */\nhtml:root:root {\n${body}\n}\n/* END Paperlight configurator */\n`;
 }
 
 function updatePreview() {
@@ -359,22 +359,30 @@ async function chooseThemeDirectory() {
 }
 
 function mergeGenerated(existing, generated) {
-  const start = '/* BEGIN OneLight configurator */';
-  const end = '/* END OneLight configurator */';
-  const first = existing.indexOf(start);
-  const last = existing.indexOf(end);
-  if (first === -1 && last === -1) return existing + (existing && !existing.endsWith('\n') ? '\n' : '') + generated;
-  if (first < 0 || last < first || existing.indexOf(start, first + start.length) !== -1 || existing.indexOf(end, last + end.length) !== -1) {
+  const markers = ['OneLight', 'Paperlight'].flatMap(name => [
+    { name, type: 'begin', text: `/* BEGIN ${name} configurator */` },
+    { name, type: 'end', text: `/* END ${name} configurator */` },
+  ]).flatMap(marker => {
+    const matches = [];
+    let position = existing.indexOf(marker.text);
+    while (position !== -1) {
+      matches.push({ ...marker, position });
+      position = existing.indexOf(marker.text, position + marker.text.length);
+    }
+    return matches;
+  }).sort((a, b) => a.position - b.position);
+  if (markers.length === 0) return existing + (existing && !existing.endsWith('\n') ? '\n' : '') + generated;
+  if (markers.length !== 2 || markers[0].type !== 'begin' || markers[1].type !== 'end' || markers[0].name !== markers[1].name) {
     throw new Error('现有 CSS 中的配置标记不完整或重复，未修改文件。');
   }
-  return existing.slice(0, first) + generated.trimEnd() + existing.slice(last + end.length);
+  return existing.slice(0, markers[0].position) + generated.trimEnd() + existing.slice(markers[1].position + markers[1].text.length);
 }
 
 async function saveToTypora() {
   if (!validateImages()) return;
   if (!themeDirectory) await chooseThemeDirectory();
   if (!themeDirectory) return;
-  const files = [['onelight.user.css', cssFor('light')], ['onelight-dark.user.css', cssFor('dark')]];
+  const files = [['paperlight.user.css', cssFor('light')], ['paperlight-dark.user.css', cssFor('dark')]];
   const prepared = [];
   const written = [];
   try {
@@ -488,7 +496,7 @@ function bindEvents() {
 
   $('chooseThemeDirectory')?.addEventListener('click', chooseThemeDirectory);
   $('exportConfig')?.addEventListener('click', () => {
-    downloadFile('onelight-settings.json', JSON.stringify({ version: 1, settings: { ...state, previewTheme: undefined } }, null, 2), 'application/json;charset=utf-8');
+    downloadFile('paperlight-settings.json', JSON.stringify({ version: 1, settings: { ...state, previewTheme: undefined } }, null, 2), 'application/json;charset=utf-8');
     setStatus('已下载配置文件，包含自定义图片。');
   });
   $('importConfig')?.addEventListener('change', async (event) => {
@@ -523,8 +531,8 @@ function bindEvents() {
   $('copyDark').addEventListener('click', () => copyText(cssFor('dark'), '已复制深色 CSS。'));
   $('downloadBoth').addEventListener('click', () => {
     if (!validateImages()) return;
-    downloadFile('onelight.user.css', cssFor('light'));
-    downloadFile('onelight-dark.user.css', cssFor('dark'));
+    downloadFile('paperlight.user.css', cssFor('light'));
+    downloadFile('paperlight-dark.user.css', cssFor('dark'));
     setStatus('已下载两个 CSS 文件。');
   });
   $('saveTheme').addEventListener('click', saveToTypora);

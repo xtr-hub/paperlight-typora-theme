@@ -53,6 +53,6 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`OneLight configurator: http://127.0.0.1:${PORT}/tools/theme-configurator/`);
+  console.log(`Paperlight configurator: http://127.0.0.1:${PORT}/tools/theme-configurator/`);
   console.log('Keep this process running while using the settings page.');
 });

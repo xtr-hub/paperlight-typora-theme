@@ -2,7 +2,7 @@ name: Deploy theme configurator
 
 on:
   push:
-    branches: [onelight]
+    branches: [paperlight]
   workflow_dispatch:
 
 permissions:
