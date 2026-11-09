@@ -231,3 +231,99 @@ test('the generated site also works at the domain root', async () => {
     assert.deepEqual(failed, []);
   } finally { await context.close(); }
 });
+
+test('styled select preserves keyboard selection, focus and popup geometry', async () => {
+  const { context, page } = await openPage();
+  try {
+    const select = page.locator('#fontFace');
+    await select.scrollIntoViewIfNeeded();
+    await select.focus();
+    await page.keyboard.press('Space');
+    assert.ok(await select.evaluate(el => el.matches(':open')));
+    const geometry = await select.evaluate(el => ({
+      trigger: el.getBoundingClientRect().width,
+      popup: parseFloat(getComputedStyle(el, '::picker(select)').width),
+      option: el.options[0].getBoundingClientRect().toJSON(),
+      viewport: { width: innerWidth, height: innerHeight },
+    }));
+    assert.ok(Math.abs(geometry.trigger - geometry.popup) <= 1, JSON.stringify(geometry));
+    assert.ok(geometry.option.left >= 0 && geometry.option.right <= geometry.viewport.width);
+    assert.ok(geometry.option.top >= 0 && geometry.option.bottom <= geometry.viewport.height);
+    await page.keyboard.press('End');
+    await page.keyboard.press('Enter');
+    assert.equal(await select.inputValue(), 'serif');
+    await page.keyboard.press('Space');
+    await page.keyboard.press('Escape');
+    assert.equal(await select.evaluate(el => el.matches(':open')), false);
+    assert.equal(await select.evaluate(el => el === document.activeElement), true);
+    await page.setViewportSize({ width: 390, height: 700 });
+    await select.scrollIntoViewIfNeeded();
+    await select.click();
+    const narrow = await select.evaluate(el => el.options[0].getBoundingClientRect().toJSON());
+    assert.ok(narrow.left >= 0 && narrow.right <= 390);
+    await page.keyboard.press('Escape');
+  } finally { await context.close(); }
+});
+
+test('preset, slider and theme presentation stay synchronized with reduced motion', async () => {
+  const { context, page } = await openPage();
+  try {
+    await page.locator('[data-preset="lavender"]').click();
+    assert.equal(await page.locator('[data-preset="lavender"]').getAttribute('aria-pressed'), 'true');
+    const range = page.locator('#radius');
+    assert.equal(await range.inputValue(), '10');
+    assert.ok(parseFloat(await range.evaluate(el => el.style.getPropertyValue('--range-progress'))) > 50);
+    await range.focus();
+    await page.keyboard.press('ArrowRight');
+    assert.equal(await range.inputValue(), '11');
+    assert.equal(await page.locator('[data-preset="lavender"]').getAttribute('aria-pressed'), 'false');
+    await page.locator('[data-preview-theme="dark"]').click();
+    assert.equal(await page.locator('[data-preview-theme="dark"]').getAttribute('aria-pressed'), 'true');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    assert.equal(await range.evaluate(el => getComputedStyle(el).transitionDuration), '0s');
+    assert.equal(await page.locator('.theme-switch').evaluate(el => getComputedStyle(el, '::before').transitionDuration), '0s');
+  } finally { await context.close(); }
+});
+
+test('saving exposes a busy state and restores the action after completion', async () => {
+  const { context, page } = await openPage();
+  try {
+    await installDirectoryMock(page);
+    await page.evaluate(() => {
+      const picker = window.showDirectoryPicker;
+      window.showDirectoryPicker = async () => {
+        const directory = await picker();
+        const getHandle = directory.getFileHandle.bind(directory);
+        let holdFirstWrite = true;
+        directory.getFileHandle = async (...args) => {
+          const handle = await getHandle(...args);
+          const create = handle.createWritable.bind(handle);
+          handle.createWritable = async () => {
+            const writer = await create();
+            const write = writer.write.bind(writer);
+            writer.write = async data => {
+              if (holdFirstWrite) {
+                holdFirstWrite = false;
+                await new Promise(resolve => { window.releaseSave = resolve; });
+              }
+              await write(data);
+            };
+            return writer;
+          };
+          return handle;
+        };
+        return directory;
+      };
+    });
+    await page.locator('#saveTheme').click();
+    await page.waitForFunction(() => typeof window.releaseSave === 'function');
+    assert.equal(await page.locator('#saveTheme').isDisabled(), true);
+    assert.equal(await page.locator('#saveTheme').getAttribute('aria-busy'), 'true');
+    assert.equal(await page.locator('#chooseThemeDirectory').isDisabled(), true);
+    await page.evaluate(() => window.releaseSave());
+    await page.locator('#status').filter({ hasText: '已保存' }).waitFor();
+    assert.equal(await page.locator('#saveTheme').isDisabled(), false);
+    assert.equal(await page.locator('#saveTheme').getAttribute('aria-busy'), null);
+    assert.equal(await page.locator('#saveTheme').innerText(), '保存到主题文件夹');
+  } finally { await context.close(); }
+});

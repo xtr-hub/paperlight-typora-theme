@@ -164,6 +164,16 @@ function syncOutputs() {
   $('focusDimValue').value = state.focusDim;
 }
 
+function syncControlPresentation() {
+  for (const button of document.querySelectorAll('.preset')) {
+    const preset = PRESETS[button.dataset.preset];
+    const selected = Object.entries(preset).every(([key, value]) => state[key] === value);
+    button.classList.toggle('is-selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  }
+  window.PaperlightUI?.sync();
+}
+
 function syncControls() {
   for (const id of TEXT_INPUTS) $(id).value = state[id];
   for (const id of CHECKBOXES) $(id).checked = Boolean(state[id]);
@@ -279,6 +289,7 @@ function cssFor(theme) {
 }
 
 function updatePreview() {
+  syncControlPresentation();
   if (!previewReady) return;
   const vars = buildVars(state.previewTheme);
   preview.contentWindow.postMessage({
@@ -289,6 +300,7 @@ function updatePreview() {
 }
 
 function schedulePreview() {
+  syncControlPresentation();
   window.clearTimeout(updateTimer);
   updateTimer = window.setTimeout(updatePreview, 60);
 }
@@ -378,37 +390,52 @@ function mergeGenerated(existing, generated) {
   return existing.slice(0, markers[0].position) + generated.trimEnd() + existing.slice(markers[1].position + markers[1].text.length);
 }
 
+let savingTheme = false;
 async function saveToTypora() {
-  if (!validateImages()) return;
-  if (!themeDirectory) await chooseThemeDirectory();
-  if (!themeDirectory) return;
-  const files = [['paperlight.user.css', cssFor('light')], ['paperlight-dark.user.css', cssFor('dark')]];
-  const prepared = [];
-  const written = [];
+  if (savingTheme || !validateImages()) return;
+  savingTheme = true;
+  const saveLabel = $('saveTheme').textContent;
+  $('saveTheme').textContent = '正在保存…';
+  $('saveTheme').disabled = true;
+  $('saveTheme').setAttribute('aria-busy', 'true');
+  $('chooseThemeDirectory').disabled = true;
   try {
-    for (const [name, generated] of files) {
-      let handle, original = null;
-      try { handle = await themeDirectory.getFileHandle(name); original = await (await handle.getFile()).text(); }
-      catch (error) { if (error.name !== 'NotFoundError') throw error; }
-      prepared.push({ name, handle, original, updated: mergeGenerated(original ?? '', generated) });
+    if (!themeDirectory) await chooseThemeDirectory();
+    if (!themeDirectory) return;
+    const files = [['paperlight.user.css', cssFor('light')], ['paperlight-dark.user.css', cssFor('dark')]];
+    const prepared = [];
+    const written = [];
+    try {
+      for (const [name, generated] of files) {
+        let handle, original = null;
+        try { handle = await themeDirectory.getFileHandle(name); original = await (await handle.getFile()).text(); }
+        catch (error) { if (error.name !== 'NotFoundError') throw error; }
+        prepared.push({ name, handle, original, updated: mergeGenerated(original ?? '', generated) });
+      }
+      for (const file of prepared) {
+        file.handle ||= await themeDirectory.getFileHandle(file.name, { create: true });
+        written.push(file);
+        const writer = await file.handle.createWritable();
+        await writer.write(file.updated);
+        await writer.close();
+      }
+      setStatus('已保存浅色和深色配置，原有其他 CSS 已保留。重启 Typora 或切换主题后生效。');
+    } catch (error) {
+      let rollbackFailed = false;
+      for (const file of written.reverse()) {
+        try {
+          if (file.original === null) await themeDirectory.removeEntry(file.name);
+          else { const writer = await file.handle.createWritable(); await writer.write(file.original); await writer.close(); }
+        } catch { rollbackFailed = true; }
+      }
+      setStatus(`保存失败：${error.message || error}。${rollbackFailed ? '自动恢复未完全成功，请检查主题目录中的两个 user CSS。' : '已尝试恢复原文件。'}`, true);
     }
-    for (const file of prepared) {
-      file.handle ||= await themeDirectory.getFileHandle(file.name, { create: true });
-      written.push(file);
-      const writer = await file.handle.createWritable();
-      await writer.write(file.updated);
-      await writer.close();
-    }
-    setStatus('已保存浅色和深色配置，原有其他 CSS 已保留。重启 Typora 或切换主题后生效。');
-  } catch (error) {
-    let rollbackFailed = false;
-    for (const file of written.reverse()) {
-      try {
-        if (file.original === null) await themeDirectory.removeEntry(file.name);
-        else { const writer = await file.handle.createWritable(); await writer.write(file.original); await writer.close(); }
-      } catch { rollbackFailed = true; }
-    }
-    setStatus(`保存失败：${error.message || error}。${rollbackFailed ? '自动恢复未完全成功，请检查主题目录中的两个 user CSS。' : '已尝试恢复原文件。'}`, true);
+  } finally {
+    savingTheme = false;
+    $('saveTheme').disabled = false;
+    $('saveTheme').textContent = saveLabel;
+    $('saveTheme').removeAttribute('aria-busy');
+    $('chooseThemeDirectory').disabled = false;
   }
 }
 

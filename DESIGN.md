@@ -62,6 +62,8 @@ Use small rounded corners, generally 4–12 px, with clear outlines. Avoid decor
 
 Inputs retain native semantics and visible keyboard focus. Selection, disabled, error, and save states must be understandable without color alone. Keep the preview representative of the actual light or dark theme and report whether a setting was saved or needs manual installation. Motion is brief and respects reduced-motion preferences.
 
+Selects use native customizable `base-select` pickers where supported: trigger and popup share width, border and corner tokens, with native keyboard navigation and collision handling. Older browsers retain their native popup. Range inputs retain native keyboard/touch behavior, with an animated fill for preset changes and immediate tracking while dragging. The theme switch uses a sliding indicator; presets expose their selected state. Saving disables repeated submissions and announces progress. Reduced-motion mode removes transitions.
+
 ## Do's and Don'ts
 
 - Keep the preview and generated CSS driven by the same values.
