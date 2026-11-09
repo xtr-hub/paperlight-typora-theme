@@ -1,12 +1,10 @@
 <h1 align='center'>Paperlight Theme For Typora</h1>
 
-<p align="center"><a href="https://xtr-hub.github.io/paperlight-typora-theme/"><strong>在线配置 · 实时预览</strong></a> · <a href="#安装主题">安装主题</a></p>
-
 <p align="center">
-  <img src="https://img.shields.io/badge/unofficial%20community%20fork-xtr--hub-blue?labelColor=grey" alt="Unofficial Community Fork">
-  <img src="https://img.shields.io/github/last-commit/xtr-hub/paperlight-typora-theme?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4&labelColor=grey&color=green" alt="Last Commit">
-  <img src="https://img.shields.io/github/stars/xtr-hub/paperlight-typora-theme?labelColor=grey&color=yellow" alt="Stars">
-  <img src="https://img.shields.io/github/issues/xtr-hub/paperlight-typora-theme?label=Issues&labelColor=grey&color=orange" alt="Issues">
+  <a href="https://github.com/caolib/typora-onelight-theme"><img src="https://img.shields.io/badge/unofficial%20community%20fork-xtr--hub-blue?labelColor=grey" alt="Unofficial Community Fork"></a>
+  <a href="https://github.com/xtr-hub/paperlight-typora-theme/commits/paperlight/"><img src="https://img.shields.io/github/last-commit/xtr-hub/paperlight-typora-theme/paperlight?label=%E4%B8%8A%E6%AC%A1%E6%8F%90%E4%BA%A4&labelColor=grey&color=green" alt="Last Commit"></a>
+  <a href="https://github.com/xtr-hub/paperlight-typora-theme"><img src="https://img.shields.io/github/stars/xtr-hub/paperlight-typora-theme?labelColor=grey&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/xtr-hub/paperlight-typora-theme/issues"><img src="https://img.shields.io/github/issues/xtr-hub/paperlight-typora-theme?label=Issues&labelColor=grey&color=orange" alt="Issues"></a>
 </p>
 
 > [!note]
@@ -27,20 +25,12 @@
 	<a href="https://zdoc.app/ru/xtr-hub/paperlight-typora-theme">Русский</a>
 </p>
 
-
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/xtr-hub/paperlight-typora-theme/total?labelColor=grey&color=blue" alt="Downloads">
-  <img src="https://img.shields.io/github/v/release/xtr-hub/paperlight-typora-theme?labelColor=grey&color=red" alt="Release">
-  <img src="https://img.shields.io/github/license/xtr-hub/paperlight-typora-theme" alt="License">
+  <a href="https://github.com/xtr-hub/paperlight-typora-theme/archive/refs/heads/paperlight.zip"><img src="https://img.shields.io/badge/download-source%20ZIP-333333?labelColor=grey" alt="下载当前分支源码 ZIP"></a>
+  <a href="https://github.com/xtr-hub/paperlight-typora-theme/blob/paperlight/LICENSE"><img src="https://img.shields.io/github/license/xtr-hub/paperlight-typora-theme" alt="License: WTFPL"></a>
 </p>
 
-## 推荐：在线配置
-
-**[打开 Paperlight 在线配置页](https://xtr-hub.github.io/paperlight-typora-theme/)**，直观调整配色、排版、背景和表情包，并实时预览浅色与深色效果。
-
-1. 首次使用时，先按下方的[安装主题](#安装主题)步骤将 Paperlight 安装到 Typora。
-2. 在在线配置页调整设置，选择 Typora 的主题文件夹，点击 **保存到主题文件夹**。浏览器不支持直接写入时，可下载 CSS 后手动放入主题文件夹。
-3. 重启 Typora 或切换一次主题，应用设置。配置页生成的是个人配置文件，不会替你安装主题本体。
+[![Paperlight 在线配置页](docs/img/readme/theme-configurator.png)](https://xtr-hub.github.io/paperlight-typora-theme/)
 
 ## 主题预览
 
@@ -97,8 +87,6 @@ themes/
 - 选择强调色、字体、字号、行高、内容宽度、圆角和标题装饰。
 - 使用内置图片、本地图片或 HTTP(S) 链接自定义页面背景与表情包；可调整背景位置、平铺和遮罩，以及表情包的四角位置、边距、大小和透明度。
 - 设置自动保存在当前浏览器中，也可以导出 JSON，之后重新导入。清除浏览器数据或更换浏览器前，请先导出配置。
-
-![Paperlight 在线主题设置页](docs/img/readme/theme-configurator.png)
 
 设置完成后，选择 Typora 的主题文件夹并点击 **保存到主题文件夹**，然后重启 Typora 或切换一次主题。页面会写入 <code>paperlight.user.css</code> 和 <code>paperlight-dark.user.css</code> 中的配置块，保留文件中的其他自定义 CSS；不会安装或替换主题本体。刷新网页后需重新选择文件夹。
 
