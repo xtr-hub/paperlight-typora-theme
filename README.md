@@ -10,7 +10,7 @@
 > [!note]
 > **关于本仓库**
 >
-> Paperlight 由 [caolib/typora-onelight-theme](https://github.com/caolib/typora-onelight-theme) 演化而来，感谢原作者 @caolib 创作了原主题。本仓库属于 [Typora 官方主题仓库](https://github.com/typora/theme.typora.io)的 fork 网络。
+> Paperlight 由 [caolib/typora-onelight-theme](https://github.com/caolib/typora-onelight-theme) 演化而来，感谢原作者 @caolib 创作了原主题。本仓库直接 fork 自 [Typora 官方主题仓库](https://github.com/typora/theme.typora.io)。
 >
 > 本项目由社区独立维护，与 Typora 官方及原主题作者没有官方关联，也未获得授权或移交。
 <p align="center">
