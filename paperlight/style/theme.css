@@ -660,6 +660,7 @@ html body.on-focus-mode #write .CodeMirror.cm-s-inner:not(.CodeMirror-focused) *
 }
 
 #write pre.md-fences:has(> .CodeMirror) > .code-tooltip {
+    position: absolute;
     right: 0;
     top: calc(100% + 8px);
     bottom: auto;

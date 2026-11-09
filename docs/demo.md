@@ -1,206 +1,104 @@
 # Paperlight
 
+给想法留一点空白，让记录慢慢成形。
+
 [TOC]
 
-## 1 二级标题
+## 从一段文字开始
 
-### 1.1 三级标题
+清晨打开笔记，先写下一件值得记住的小事。也许是读到的一句话，也许是散步时冒出的灵感。**先把想法留下来**，再慢慢整理结构。
 
-#### 1.1.1 四级标题
+一份好读的笔记，既容得下中文的停顿，也照顾 English words 的节奏。用 *斜体* 留下旁注，用 ==高亮== 标记重点，用 `draft.md` 记住文件名；细节各有位置，阅读自然顺畅。
 
-##### 1.1.1.1 五级标题
-
-###### 1.1.1.1.1 六级标题
-
-## 2 引用块
-
-> 关关雎鸠，在河之洲。窈窕淑女，君子好逑。
-
-## 3 GitHub警告框
-
-> [!NOTE]
->**长风破浪会有时，直挂云帆济沧海。**——李白
+> 写作不必从完整的答案开始。一句清楚的问题，也是一页笔记的好开头。
 
 > [!TIP]
->
-> <img align='right' src="https://ziyuan.guwendao.net/authorImg300/dufu.jpg" alt="杜甫" style="zoom: 60%;" />春望
->
-> **杜甫**〔唐代〕
->
-> 国破山河在，城春草木深。
-> 感时花溅泪，恨别鸟惊心。
-> **烽火连三月**，家书抵万金。
-> 白头搔更短，浑欲不胜簪。
+> 试着切换浅色和深色，再调整字号与行高，找到适合长时间阅读的节奏。
 
-> [!IMPORTANT]
->
-> 问君能有几多**愁**？恰似一江春水向东流。——**李煜**《虞美人·春花秋月何时了》
+## 把灵感变成计划
 
-> [!WARNING]
->
-> 醉后不知天在水，满船清梦压星河。——**唐温如**《题龙阳县青草湖》
+这周想整理一份「周末阅读札记」，让零散的摘录和自己的想法放在一起。
 
-> [!CAUTION]
->
-> 洛阳亲友如相问，一片**冰心**在玉壶。——**王昌龄**《芙蓉楼送辛渐》
+- 摘录：保存触动自己的句子，并记录出处。
+- 思考：写下认同、疑问和还想继续追问的事。
+  - 这段话与我最近的经历有什么联系？
+  - 下一次阅读时，可以带着什么问题出发？
 
-## 4 代码
+### 本次整理的三个步骤
 
-行内代码 `xtr-hub/paperlight-typora-theme`
+1. 把想法写成短句，暂时不修改。
+2. 合并相近的内容，为每一组拟一个小标题。
+3. 回读全文，删去重复，补上必要的说明。
+
+- [x] 收集本周摘录
+- [ ] 补上自己的理解
+
+## 写给明天的代码
+
+笔记里也可以放一小段代码。清楚的命名和恰当的注释，会让未来的自己更快想起当时的思路。
 
 ```javascript
-export default defineConfig({
-    plugins: [
-        vue(),
-        AutoImport({
-            resolvers: [ElementPlusResolver()],
-        }),
-        Components({
-            resolvers: [ElementPlusResolver()],
-        }),
-    ],
-    resolve: {
-        alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url))
-        }
-    },
-    //http proxy
-    server: {
-        host: 'localhost',
-        port: 5173,
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8080',
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api/, '')
-            }
-        }
-    },
-})
+// 为今天的阅读留一个位置
+const note = {
+  title: '周末阅读札记',
+  minutes: 25,
+  tags: ['阅读', '灵感']
+};
+console.log(`开始记录：${note.title}`);
 ```
 
-## 5 列表
+复制一段文字可以使用 <kbd>Ctrl</kbd> + <kbd>C</kbd>；完成修改后，用 ~~待整理~~ 标记曾经需要处理的内容。
 
-> 有、无序列表样式来自[dyzj](https://theme.typora.io/theme/dyzj/)主题，感谢作者muggledy
+## 回看与整理
 
-无序列表：
+表格适合放需要对照的信息。给内容留出合适的宽度，比把每个格子填满更有帮助。
 
+| 内容 | 时间 | 留下什么 |
+| :--- | :--- | :--- |
+| 阅读摘录 | 周三 · 20 分钟 | 一句值得反复读的话 |
+| 散步随记 | 周六 · 15 分钟 | 一个新发现 |
+| 每周回顾 | 周日 · 30 分钟 | 下周想继续探索的问题 |
 
-- 无
-  - 无序
-    - 无序列
-      - 无序列表
+> [!NOTE]
+> 喜欢现在的效果后，可以在[在线配置页](https://xtr-hub.github.io/paperlight-typora-theme/)保存配置，再回到 Typora 继续自己的记录。
 
-有序列表：
+## 多一点表达方式
 
-1. 有
-2. 有序
-3. 有序列
-4. 有序列表
+### 图片与题注
 
-任务列表：
+![留在笔记一角的小伙伴](../paperlight/img/mutou2.gif)
 
-- [x] 已完成任务
-- [ ] 未完成任务
+本地图片和动态 GIF 都可以放进笔记，或用作主题的背景与表情包。
 
-## 6 文本
+### 公式
 
-| 效果                              | 语法                                | 快捷键                                             |
-| --------------------------------- | ----------------------------------- | -------------------------------------------------- |
-| ==文本高亮==                      | `==文本高亮==`                      | 选中文本后双击<kbd>=</kbd>键                       |
-| **加粗**                          | `**加粗**`                          | 选中文本后<kbd>Ctrl B</kbd>                        |
-| *斜体*                            | `*斜体*`                            | 选中文本后<kbd>Ctrl I</kbd>                        |
-| ~~删除线~~                        | `~~删除线~~`                        | 选中文本后按住<kbd>Shift</kbd>然后双击<kbd>~</kbd> |
-| <u>下划线</u>                     | `<u>下划线</u>`                     | 选中文本后<kbd>Ctrl U</kbd>                        |
-| <kbd>Ctrl</kbd>                   | `<kbd>Ctrl</kbd>`                   | 无                                                 |
-| <span alt='highlight'>高亮</span> | `<span alt='highlight'>高亮</span>` | 无                                                 |
-
-## 7 表格
-
-| 时间                | 人数 | 地点 |
-| :------------------ | :--: | ---: |
-| 2024-12-15 12:34:59 | 123  | 上海 |
-| 2024-12-15 12:35:03 | 456  | 北京 |
-| 2024-12-15 12:35:07 | 789  | 深圳 |
-
-## 8 图片
-
-图片默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐 
-
-<img src="https://img.shields.io/github/downloads/xtr-hub/paperlight-typora-theme/latest/total">
-
-`<img align='left' src="......"/> <img align='right' src="......"/>`
-
-<img align='left' src="https://s2.loli.net/2024/12/29/8KTQLnUcGzX2vdx.gif" alt="社恐" style="zoom:25%;" /><img align='left' src="https://s2.loli.net/2024/12/29/mTNin3OZPyucQpV.gif" alt="威胁" style="zoom:25%;" /><img align='left' src="https://s2.loli.net/2024/12/29/LRBkhyGwbI3toO7.gif" alt="气鼓鼓" style="zoom:25%;" /><img align='left' src="https://s2.loli.net/2024/12/29/Zbnxh3fTJUK8r7V.gif" alt="憋笑" style="zoom:25%;" />
-
-
-
-
-
-
-
-
-
-
-
-## 9 数学公式
-
-- 行内公式：这是一个数学公式 $\lim\limits_{x \to \infty} \exp(-x)=0$
-
-- 行间公式：
+把每天的阅读时长记为 $t_i$，一周的累计时间可以写成：
 
 $$
-E_0 = mc^2 \\
-\quad\text{—— Albert Einstein}
+T = \sum_{i=1}^{7} t_i
 $$
 
-## 10 链接
-
-可以直接用尖括号包裹链接`<https://clb.pages.dev>`或者使用`[链接名](链接地址)`
-
-<https://clb.pages.dev>
-
-[paperlight-typora-theme](https://github.com/xtr-hub/paperlight-typora-theme)
-
-## 11 音频
-
-<audio controls="controls">
-  <source src="https://bin-music.netlify.app/songs/%E5%B0%8F%E3%81%95%E3%81%AA%E6%B5%B7-%E7%B5%90%E6%9D%9F%E3%83%90%E3%83%B3%E3%83%89.mp3" type="audio/mp3" />
-</audio>
-## 12 mermaid
+### 流程图
 
 ```mermaid
-flowchart TD
-    A[Start] --> B{Is it?}
-    B -->|Yes| C[OK]
-    C --> D[Rethink]
-    D --> B
-    B ---->|No| E[End]
+flowchart LR
+    A[收集灵感] --> B[整理笔记]
+    B --> C[回读与修改]
+    C --> D[分享或归档]
 ```
 
-```mermaid
-sequenceDiagram
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-    Alice-)John: See you later!
-```
+#### 留一个问题
 
-```mermaid
-xychart-beta
-    title "Sales Revenue"
-    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
-    y-axis "Revenue (in $)" 4000 --> 11000
-    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
-    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
-```
+今天记录的内容里，哪一句值得带到明天？
 
-```mermaid
-gantt
-    dateFormat HH:mm
-    axisFormat %H:%M
-    Initial milestone : milestone, m1, 17:49, 2m
-    Task A : 10m
-    Task B : 5m
-    Final milestone : milestone, m2, 18:08, 4m
-```
+##### 补充线索
 
+给相关笔记加一个链接，下一次整理时就容易找到。
+
+###### 结束之前
+
+从今天的一小段开始，再读一遍。
+
+---
+
+[返回项目](https://github.com/xtr-hub/paperlight-typora-theme) · [在线调整外观](https://xtr-hub.github.io/paperlight-typora-theme/)

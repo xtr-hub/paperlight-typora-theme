@@ -2,6 +2,12 @@
 
 这是一个无需服务端的静态配置工具。可以预览浅色和深色主题，调整颜色、排版、背景和表情包，再把设置应用到已安装的 Paperlight 主题。
 
+## 推荐：在线使用
+
+直接打开 [Paperlight 在线配置页](https://xtr-hub.github.io/paperlight-typora-theme/)，无需在本机启动服务。先安装当前版本的 Paperlight 主题，再调整外观、实时预览并保存到 Typora 主题目录。具体安装方法见[项目 README](../../README.md#安装主题)。
+
+预览中的阅读札记展示了中英混排、引用、提示框、任务清单、代码和表格；也可在 Typora 中打开 [Markdown 演示稿](../../docs/demo.md)，体验公式与流程图等更多内容。
+
 ## 本地使用
 
 需要 Node.js，执行：

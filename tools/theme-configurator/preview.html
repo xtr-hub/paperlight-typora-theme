@@ -7,57 +7,65 @@
 </head>
 <body>
 <content>
-  <div id="write">
+  <article id="write">
     <h1>Paperlight</h1>
+    <p>给想法留一点空白，让记录慢慢成形。</p>
 
-    <div class="md-toc">
+    <nav class="md-toc" aria-label="文章目录">
       <p class="md-toc-content">
-        <span class="md-toc-item md-toc-h1"><a class="md-toc-inner" href="#">Paperlight</a></span>
-        <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#">排版与节奏</a></span>
+        <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#writing">从一段文字开始</a></span>
+        <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#planning">把灵感变成计划</a></span>
+        <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#code">写给明天的代码</a></span>
+        <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#review">回看与整理</a></span>
       </p>
+    </nav>
+
+    <h2 id="writing">从一段文字开始</h2>
+    <p>清晨打开笔记，先写下一件值得记住的小事。也许是读到的一句话，也许是散步时冒出的灵感。<strong>先把想法留下来</strong>，再慢慢整理结构。</p>
+    <p>一份好读的笔记，既容得下中文的停顿，也照顾 English words 的节奏。用 <em>斜体</em> 留下旁注，用 <mark>高亮</mark> 标记重点，用 <code>draft.md</code> 记住文件名；细节各有位置，阅读自然顺畅。</p>
+    <blockquote><p>写作不必从完整的答案开始。一句清楚的问题，也是一页笔记的好开头。</p></blockquote>
+    <div class="md-alert md-alert-tip">
+      <p class="md-alert-text-container" data-text="tip">Tip</p>
+      <p>试着切换浅色和深色，再调整字号与行高，找到适合长时间阅读的节奏。</p>
     </div>
 
-    <h2>排版与节奏</h2>
-    <p>正文里可以出现 <strong>加粗强调</strong>、<a href="#">链接</a>、<code>行内代码</code>，以及 <mark>高亮</mark>。中英混排 English text 应该保持自然。</p>
-    <p>这是一段用于观察行高、字距和内容宽度的示例文字。装饰不必很多，但阅读节奏应该稳定。</p>
-
-    <blockquote>
-      <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
-    </blockquote>
-
-    <div class="md-alert md-alert-note">
-      <p class="md-alert-text-container" data-text="note">Note</p>
-      <p>提示信息使用很浅的底色和 1px 边框，不再堆叠阴影。</p>
-    </div>
-
-    <h3>列表</h3>
+    <h2 id="planning">把灵感变成计划</h2>
+    <p>这周想整理一份「周末阅读札记」，让零散的摘录和自己的想法放在一起。</p>
     <ul>
-      <li>无序列表项一</li>
-      <li>无序列表项二</li>
+      <li>摘录：保存触动自己的句子，并记录出处。</li>
+      <li>思考：写下认同、疑问和还想继续追问的事。
+        <ul><li>这段话与我最近的经历有什么联系？</li><li>下一次阅读时，可以带着什么问题出发？</li></ul>
+      </li>
     </ul>
-    <ol>
-      <li>有序列表项一</li>
-      <li>有序列表项二</li>
-    </ol>
+    <h3>本次整理的三个步骤</h3>
+    <ol><li>把想法写成短句，暂时不修改。</li><li>合并相近的内容，为每一组拟一个小标题。</li><li>回读全文，删去重复，补上必要的说明。</li></ol>
+    <ul class="task-list">
+      <li class="task-list-item task-list-done"><input type="checkbox" checked aria-label="收集本周摘录">收集本周摘录</li>
+      <li class="task-list-item"><input type="checkbox" aria-label="补上自己的理解">补上自己的理解</li>
+    </ul>
 
-    <h3>代码</h3>
-    <pre class="md-fences md-end-block ty-contain-cm" lang="javascript"><div class="CodeMirror cm-s-inner"><div class="CodeMirror-code"><div><pre class="CodeMirror-line"><span class="cm-keyword">const</span> <span class="cm-def">theme</span> <span class="cm-operator">=</span> <span class="cm-string">'paperlight'</span>;</pre></div><div><pre class="CodeMirror-line"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'quiet stationery'</span>);</pre></div></div></div></pre>
+    <h2 id="code">写给明天的代码</h2>
+    <p>笔记里也可以放一小段代码。清楚的命名和恰当的注释，会让未来的自己更快想起当时的思路。</p>
+    <pre class="md-fences md-end-block ty-contain-cm" lang="javascript"><div class="code-tooltip"><span class="mode">javascript</span></div><div class="CodeMirror cm-s-inner"><div class="CodeMirror-code"><div><pre class="CodeMirror-line"><span class="cm-comment">// 为今天的阅读留一个位置</span></pre></div><div><pre class="CodeMirror-line"><span class="cm-keyword">const</span> <span class="cm-def">note</span> = {</pre></div><div><pre class="CodeMirror-line">  <span class="cm-property">title</span>: <span class="cm-string">'周末阅读札记'</span>,</pre></div><div><pre class="CodeMirror-line">  <span class="cm-property">minutes</span>: <span class="cm-number">25</span>,</pre></div><div><pre class="CodeMirror-line">  <span class="cm-property">tags</span>: [<span class="cm-string">'阅读'</span>, <span class="cm-string">'灵感'</span>]</pre></div><div><pre class="CodeMirror-line">};</pre></div><div><pre class="CodeMirror-line"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">`开始记录：${note.title}`</span>);</pre></div></div></div></pre>
 
-    <h3>表格</h3>
-    <figure class="md-table-fig table-figure">
-      <table>
-        <thead><tr><th>时间</th><th>人数</th><th>地点</th></tr></thead>
-        <tbody>
-          <tr><td>2024-12-15 12:34:59</td><td>123</td><td>上海</td></tr>
-          <tr><td>2024-12-15 12:35:03</td><td>456</td><td>北京</td></tr>
-        </tbody>
-      </table>
-    </figure>
-  </div>
+    <h2 id="review">回看与整理</h2>
+    <p>表格适合放需要对照的信息。给内容留出合适的宽度，比把每个格子填满更有帮助。</p>
+    <figure class="md-table-fig table-figure"><table>
+      <caption>一周笔记安排</caption>
+      <thead><tr><th>内容</th><th>时间</th><th>留下什么</th></tr></thead>
+      <tbody><tr><td>阅读摘录</td><td>周三 · 20 分钟</td><td>一句值得反复读的话</td></tr><tr><td>散步随记</td><td>周六 · 15 分钟</td><td>一个新发现</td></tr><tr><td>每周回顾</td><td>周日 · 30 分钟</td><td>下周想继续探索的问题</td></tr></tbody>
+    </table></figure>
+    <div class="md-alert md-alert-note"><p class="md-alert-text-container" data-text="note">Note</p><p>这是用于调整主题的示例文章。喜欢现在的效果后，保存配置，再回到 Typora 继续自己的记录。</p></div>
+    <hr>
+    <p>从今天的一小段开始。<a href="#writing">回到开头</a>，再读一遍。</p>
+  </article>
 </content>
 
 <script>
   const themeLink = document.getElementById('theme-css');
+  document.querySelectorAll('.task-list input').forEach(input => {
+    input.addEventListener('change', () => input.closest('li').classList.toggle('task-list-done', input.checked));
+  });
 
   window.addEventListener('message', (event) => {
     if (event.source !== window.parent || (location.origin !== 'null' && event.origin !== location.origin)) return;
