@@ -10,6 +10,7 @@
 !/docs/
 !LICENSE
 !README.md
+!DESIGN.md
 !.gitignore
 !/tools/
 !/tools/**

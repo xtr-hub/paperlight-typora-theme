@@ -1,15 +1,17 @@
 @font-face {
-    font-family: 'Jetbrains Mono';
+    font-family: 'JetBrains Mono';
     src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: '喵字果汁体';
+    font-family: 'MiaoZi';
     src: url('../fonts/MiaoZi-GuoZhiTi.woff2') format('woff2');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,24 +22,44 @@
 }
 
 :root {
-    --main-font-family: "Jetbrains Mono", "Cascadia Code", "喵字果汁体", consolas, "微软雅黑", "PingFang SC", "Microsoft YaHei", sans-serif;
-    --monospace: "Jetbrains Mono", "Cascadia Code", monospace;
+    --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: "MiaoZi", "喵字果汁体", var(--font-sans);
+    --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+
+    /* Compatibility aliases for older snippets. */
+    --main-font-family: var(--font-sans);
+    --monospace: var(--font-mono);
 }
 
 body,
-script,
-text,
+button,
+input,
+textarea,
+select,
 .md-rawblock-after,
 .md-rawblock-before,
+.md-meta-block,
+.md-toc,
+.md-footnote,
+.markdown-node-label,
+text.actor > tspan,
+text.messageText {
+    font-family: var(--font-sans);
+}
+
 code,
+kbd,
 pre,
 samp,
 tt,
+.md-fences,
 .md-fences-adv-panel,
 .md-math-container,
-.md-mathjax-preview,
-text.actor>tspan,
-text.messageText,
-span.nodeLabel.markdown-node-label {
-    font-family: var(--main-font-family);
+.md-mathjax-preview {
+    font-family: var(--font-mono);
+}
+
+#write h1,
+.typora-export h1 {
+    font-family: var(--font-display);
 }

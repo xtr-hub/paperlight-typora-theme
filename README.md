@@ -124,7 +124,9 @@
 
 如果`onelight.user.css`无效，你可能要添加`!important`提高优先级
 
-### 3.2 风格选择
+### 3.3 历史风格参考
+
+以下通过注释导入语句切换风格的说明和截图适用于旧版主题。当前版本统一使用 `onelight/style/theme.css`，建议通过 [主题设置页](#8主题设置页与静态部署)调整外观。
 
 > [!important]
 >
@@ -245,6 +247,8 @@
 
 ## 5.背景图片
 
+当前版本可以直接在[主题设置页](#8主题设置页与静态部署)选择自定义背景和表情包。以下手动修改 `editor.css` 的说明适用于旧版主题。
+
 > [!important]
 >
 > 背景图片在`onelight/img`文件夹下，另外仓库`docs/img`路径下也有一些其他图片可以使用，你也可以添加自己的图片（最好使用透明背景的图片），然后在`editor.css`文件中搜索关键字 `背景图片`找到下面代码替换图片名
@@ -292,3 +296,21 @@ npm run shots
 ```
 
 首次运行会自动拉取官方 toolkit。生成结果默认在 `docs/img/preview/`，详细用法和限制见 [tools/demo-shots/README.md](tools/demo-shots/README.md)。
+
+---
+
+## 8.主题设置页与静态部署
+
+可视化设置页支持浅色、深色实时预览，调整强调色、排版和圆角，使用本地图片或链接自定义背景和表情包，并调节它们的位置和尺寸。设置可以导出为 JSON，也可以重新导入。
+
+先安装本仓库版本的主题，然后在仓库根目录启动本地预览：
+
+```bash
+node tools/theme-configurator/serve.mjs
+```
+
+访问 `http://127.0.0.1:4173/tools/theme-configurator/`。在 Typora 的「偏好设置 → 外观」中打开主题文件夹，在网页中选择该文件夹并保存；也可以下载 CSS 后手动放入。Typora 会加载 `onelight.user.css` 与 `onelight-dark.user.css`，重启或切换主题后生效。直接保存会保留文件中已有的其他自定义 CSS。
+
+网站本身是纯静态的。运行 `node tools/theme-configurator/build.mjs` 后，可将 `dist/theme-configurator/` 整个目录部署到静态托管服务，不需要运行后端。目录直接写入需要支持 File System Access API 的浏览器及 HTTPS 或 localhost；其他环境可以下载 CSS 手动安装。
+
+完整说明见 [tools/theme-configurator/README.md](tools/theme-configurator/README.md)。

@@ -1,0 +1,1447 @@
+/* =========================================================
+   OneLight — quiet stationery
+   A restrained theme: warm paper, one accent, flat surfaces.
+   All colors live in :root tokens below; component rules use variables only.
+   ========================================================= */
+
+:root {
+    color-scheme: light;
+
+    --bg-color: #f7f6f3;
+    --surface: #fffdfa;
+    --surface-2: #f1efe9;
+    --surface-3: #e8e5de;
+
+    --text-color: #2f3437;
+    --text-secondary: #5c646d;
+    --text-tertiary: #8b929a;
+
+    --accent: #5b7cfa;
+    --accent-strong: #4566e8;
+    --accent-soft: rgba(91, 124, 250, 0.10);
+    --accent-border: rgba(91, 124, 250, 0.28);
+
+    --border-color: #e5e2db;
+    --border-strong: #d8d4cb;
+
+    --code-bg-color: #fbfaf8;
+    --quote-bg: rgba(91, 124, 250, 0.055);
+    --mark-bg: #fff1a8;
+    --selection-bg: rgba(91, 124, 250, 0.14);
+    --search-hit-bg: var(--accent-soft);
+    --search-hit-text: var(--text-color);
+    --danger: #c65b6b;
+    --inline-code-color: #4f555b;
+    --focus-dim-color: color-mix(in srgb, var(--text-color) 72%, transparent);
+    --mark-text: currentColor;
+    --on-accent: #ffffff;
+
+    --alert-note: #4f7cac;
+    --alert-tip: #4f9d69;
+    --alert-important: #7c5cbf;
+    --alert-warning: #c9962e;
+    --alert-caution: #c65b6b;
+
+    --syntax-keyword: #7c5cbf;
+    --syntax-string: #4f8a5b;
+    --syntax-number: #b06a3b;
+    --syntax-comment: var(--text-tertiary);
+    --syntax-variable: #3f6fa8;
+    --syntax-def: #2f6f5e;
+    --syntax-property: #9a5b78;
+    --syntax-operator: var(--text-secondary);
+    --syntax-builtin: #a05a3a;
+    --syntax-meta: #8a5a3a;
+    --syntax-error: var(--danger);
+    --syntax-tag: #9a5b78;
+
+    --watermark-image: url("../img/mutou2.gif");
+    --watermark-size: 108px;
+    --watermark-left: auto;
+    --watermark-right: 22px;
+    --watermark-top: auto;
+    --watermark-bottom: 38px;
+    --watermark-opacity: 1;
+
+    --content-font-size: 16px;
+    --content-line-height: 1.75;
+    --content-width: 840px;
+    --content-padding: 56px 64px 96px;
+    --h1-rule-display: block;
+    --h2-border-style: solid;
+
+    --page-bg-image: none;
+    --page-bg-overlay: 0%;
+    --page-bg-size: cover;
+    --page-bg-position: center;
+    --page-bg-repeat: no-repeat;
+
+    --mermaid-theme: default;
+    --mermaid-node-bg: var(--surface-2);
+    --mermaid-node-border: var(--accent);
+    --mermaid-line: var(--text-tertiary);
+    --mermaid-text: var(--text-color);
+    --mermaid-label-bg: var(--surface);
+    --mermaid-node-color: var(--surface-2);
+    --mermaid-contrast-color: var(--accent);
+
+    --source-max-width: 920px;
+    --source-padding: 32px 48px;
+    --overlay-bg: var(--surface);
+    --overlay-border: var(--border-color);
+    --overlay-text: var(--text-color);
+
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --shadow-soft: 0 1px 2px rgba(31, 35, 40, 0.04);
+    --shadow-menu: 0 6px 20px rgba(31, 35, 40, 0.08);
+    --shadow-popover: 0 8px 30px rgba(31, 35, 40, 0.10);
+    --transition: 140ms ease;
+
+    /* Typora UI variables */
+    --side-bar-bg-color: #f2f0ec;
+    --active-file-bg-color: var(--accent-soft);
+    --active-file-text-color: var(--accent);
+    --active-file-border-color: var(--accent);
+    --item-hover-bg-color: var(--surface-2);
+    --item-hover-text-color: var(--text-color);
+    --window-border: 1px solid var(--border-color);
+    --theme-color: var(--accent);
+    --theme-light-color: var(--surface);
+    --select-text-bg-color: var(--selection-bg);
+    --select-text-font-color: var(--text-color);
+
+    --main-red: var(--alert-caution);
+    --main-green: var(--alert-tip);
+    --main-purple: var(--alert-important);
+    --main-yellow: var(--alert-warning);
+
+    --primary-color: var(--accent);
+    --primary-btn-border-color: var(--accent);
+    --primary-btn-text-color: var(--on-accent);
+    --control-text-color: var(--text-secondary);
+    --control-text-hover-color: var(--text-color);
+    --search-select-bg-color: var(--accent-soft);
+    --search-select-text-color: var(--text-color);
+    --rawblock-edit-panel-bd: var(--border-color);
+    --md-char-color: var(--text-tertiary);
+    --meta-content-color: var(--text-secondary);
+}
+
+html:root {
+    --blur-text-color: color-mix(in srgb, var(--text-color) 52%, transparent);
+}
+
+html,
+body,
+content {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+body {
+    background-image: linear-gradient(color-mix(in srgb, var(--bg-color) var(--page-bg-overlay), transparent), color-mix(in srgb, var(--bg-color) var(--page-bg-overlay), transparent)), var(--page-bg-image);
+    background-size: 100% 100%, var(--page-bg-size);
+    background-position: center, var(--page-bg-position);
+    background-repeat: no-repeat, var(--page-bg-repeat);
+    background-attachment: fixed;
+    font-family: var(--font-sans);
+    font-size: var(--content-font-size);
+    line-height: var(--content-line-height);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+content {
+    background-color: transparent;
+    background-image: none;
+}
+
+::selection,
+#write ::selection,
+#write *::selection {
+    background: var(--selection-bg);
+    color: var(--text-color);
+}
+
+/* ---------------------------------------------------------
+   Writing area
+   --------------------------------------------------------- */
+
+#write {
+    box-sizing: border-box;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--content-padding);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    font-size: var(--content-font-size);
+    line-height: var(--content-line-height);
+    letter-spacing: 0.01em;
+}
+
+#write > *:first-child {
+    margin-top: 0 !important;
+}
+
+#write p {
+    margin: 0 0 1.15em;
+}
+
+html body.on-focus-mode #write .md-end-block:not(.md-focus):not(.md-focus-container) *,
+html body.on-focus-mode #write .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: var(--focus-dim-color) !important;
+}
+
+#write p:not(:has(.md-image)):hover,
+#write p:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   Headings: one simple hierarchy
+   --------------------------------------------------------- */
+
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    font-weight: 650;
+    line-height: 1.35;
+    letter-spacing: 0;
+}
+
+#write h1 {
+    position: relative;
+    margin: 0 0 1.2em;
+    padding-bottom: 0.5em;
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+#write h1::after {
+    content: "";
+    display: var(--h1-rule-display);
+    width: 44px;
+    height: 3px;
+    margin: 0.55em auto 0;
+    border-radius: 999px;
+    background: var(--accent);
+    opacity: 0.75;
+}
+
+#write h2 {
+    margin: 2.2em 0 0.9em;
+    padding-bottom: 0.35em;
+    border-bottom: 1px var(--h2-border-style) var(--border-color);
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+}
+
+#write h3 {
+    margin: 1.8em 0 0.6em;
+    font-size: 1.25rem;
+}
+
+#write h4 {
+    margin: 1.5em 0 0.5em;
+    color: var(--accent);
+    font-size: 1.08rem;
+}
+
+#write h5 {
+    margin: 1.2em 0 0.4em;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+#write h6 {
+    margin: 1.2em 0 0.4em;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+#write h1.md-focus,
+#write h2.md-focus,
+#write h3.md-focus,
+#write h4.md-focus,
+#write h5.md-focus,
+#write h6.md-focus {
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   Inline elements
+   --------------------------------------------------------- */
+
+#write a,
+#write a.md-url {
+    color: var(--accent);
+    font-weight: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent-border);
+    transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+#write a:hover {
+    color: var(--accent-strong);
+    text-decoration-color: var(--accent);
+}
+
+#write strong {
+    color: inherit;
+    font-weight: 650;
+}
+
+#write em {
+    color: inherit;
+}
+
+#write del {
+    color: var(--text-tertiary);
+}
+
+#write mark {
+    padding: 1px 4px;
+    border: 0;
+    border-radius: var(--radius-xs);
+    background: var(--mark-bg);
+    color: var(--mark-text);
+}
+
+#write code {
+    padding: 1px 5px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    background: var(--surface-2);
+    color: var(--inline-code-color);
+    font-family: var(--font-mono);
+    font-size: 0.86em;
+}
+
+#write pre.md-fences code {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+}
+
+#write kbd {
+    padding: 1px 6px;
+    border: 1px solid var(--border-color);
+    border-bottom-width: 2px;
+    border-radius: var(--radius-xs);
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.78em;
+    box-shadow: none;
+}
+
+#write .md-footnote {
+    color: var(--accent);
+    background: transparent;
+    font-weight: 500;
+}
+
+#write hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 2.4em 0;
+}
+
+/* ---------------------------------------------------------
+   Blockquote
+   --------------------------------------------------------- */
+
+#write blockquote {
+    margin: 1.4em 0;
+    padding: 10px 16px;
+    border: 0;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--quote-bg);
+    color: var(--text-secondary);
+    box-shadow: none;
+}
+
+#write blockquote p {
+    margin: 0.35em 0;
+    color: inherit;
+}
+
+#write blockquote p:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#write blockquote blockquote {
+    margin: 0.8em 0;
+    border-left-color: var(--border-strong);
+    background: transparent;
+}
+
+/* ---------------------------------------------------------
+   GitHub alerts
+   --------------------------------------------------------- */
+
+#write .md-alert {
+    --alert-color: var(--accent);
+    margin: 1.2em 0;
+    padding: 12px 16px;
+    border: 1px solid color-mix(in srgb, var(--alert-color) 22%, var(--border-color));
+    border-left: 4px solid var(--alert-color);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--alert-color) 6%, var(--surface));
+    box-shadow: none;
+}
+
+#write .md-alert-note {
+    --alert-color: var(--alert-note);
+}
+
+#write .md-alert-tip {
+    --alert-color: var(--alert-tip);
+}
+
+#write .md-alert-important {
+    --alert-color: var(--alert-important);
+}
+
+#write .md-alert-warning {
+    --alert-color: var(--alert-warning);
+}
+
+#write .md-alert-caution {
+    --alert-color: var(--alert-caution);
+}
+
+#write .md-alert-text-container,
+#write .md-alert-text {
+    display: block;
+    margin: 0 0 6px;
+    color: var(--alert-color);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+}
+
+#write .md-alert-text-container::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    vertical-align: 1px;
+}
+
+#write .md-alert.md-alert-note .md-alert-text-note {
+    color: var(--alert-note);
+}
+
+#write .md-alert.md-alert-tip .md-alert-text-tip {
+    color: var(--alert-tip);
+}
+
+#write .md-alert.md-alert-important .md-alert-text-important {
+    color: var(--alert-important);
+}
+
+#write .md-alert.md-alert-warning .md-alert-text-warning {
+    color: var(--alert-warning);
+}
+
+#write .md-alert.md-alert-caution .md-alert-text-caution {
+    color: var(--alert-caution);
+}
+
+#write .md-alert p {
+    margin: 0.4em 0;
+}
+
+#write .md-alert p:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#write .md-alert strong {
+    color: var(--alert-color);
+}
+
+#write .md-alert code {
+    border-color: color-mix(in srgb, var(--alert-color) 25%, var(--border-color));
+    background: color-mix(in srgb, var(--alert-color) 10%, var(--surface));
+    color: var(--alert-color);
+}
+
+/* ---------------------------------------------------------
+   Lists
+   --------------------------------------------------------- */
+
+#write ul,
+#write ol {
+    margin: 0 0 0.9em;
+    padding-left: 1.5em;
+}
+
+#write li {
+    margin: 0.18em 0;
+}
+
+#write li > ul,
+#write li > ol {
+    margin: 0.15em 0;
+}
+
+#write li > p {
+    margin: 0;
+}
+
+#write ul > li::marker {
+    color: var(--text-tertiary);
+    font-size: 0.9em;
+}
+
+#write ol > li::marker {
+    color: var(--accent);
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+#write .md-task-list-item,
+#write .task-list-item {
+    list-style: none;
+}
+
+#write .md-task-list-item > input,
+#write .task-list-item > input {
+    width: 1em;
+    height: 1em;
+    margin: 0 0.55em 0 -1.4em;
+    vertical-align: -1px;
+    accent-color: var(--accent);
+}
+
+#write .md-task-list-item > p,
+#write .task-list-item > p {
+    display: inline;
+}
+
+#write .md-task-list-item.task-list-done,
+#write .task-list-done {
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--text-tertiary);
+}
+
+/* ---------------------------------------------------------
+   Tables
+   --------------------------------------------------------- */
+
+#write p,
+#write li {
+    overflow-wrap: break-word;
+}
+
+#write a {
+    overflow-wrap: break-word;
+}
+
+#write figure.md-table-fig {
+    margin: 1.4em 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    background: var(--surface);
+    box-shadow: none;
+}
+
+#write table {
+    width: 100%;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+    background: var(--surface);
+}
+
+#write figure.md-table-fig table {
+    border: 0;
+}
+
+#write table th,
+#write table td {
+    padding: 8px 12px;
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
+}
+
+#write table th {
+    background: var(--surface-2);
+    color: var(--text-color);
+    font-weight: 650;
+}
+
+#write table tr:last-child td {
+    border-bottom: 0;
+}
+
+#write table tbody tr:hover {
+    background: color-mix(in srgb, var(--surface-2) 65%, transparent);
+}
+
+#write .md-table-resize-popover,
+#write .popover.bottom.md-table-resize-popover {
+    border: 1px solid var(--overlay-border) !important;
+    background: var(--overlay-bg) !important;
+    color: var(--overlay-text) !important;
+    box-shadow: var(--shadow-menu) !important;
+}
+
+#write .md-table-resize-popover .popover-title {
+    border-color: var(--overlay-border) !important;
+    background: var(--surface-2) !important;
+    color: var(--overlay-text) !important;
+}
+
+/* ---------------------------------------------------------
+   Code fences + syntax
+   --------------------------------------------------------- */
+
+#write pre.md-fences {
+    position: relative;
+    margin: 1.4em 0;
+    padding: 14px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--code-bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    line-height: 1.65;
+    box-shadow: none;
+    overflow: auto;
+}
+
+#write pre.md-fences .CodeMirror {
+    height: auto;
+    background: transparent;
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Keep Typora's editable language control outside the code block. */
+#write pre.md-fences:has(> .CodeMirror) {
+    margin-bottom: 3.8em;
+    overflow: visible;
+}
+
+#write pre.md-fences:has(> .CodeMirror) > .code-tooltip {
+    right: 0;
+    top: calc(100% + 8px);
+    bottom: auto;
+    left: auto;
+    box-sizing: border-box;
+    width: 14em;
+    max-width: 100%;
+    padding: 3px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+#write pre.md-fences:has(> .CodeMirror) > .code-tooltip .ty-cm-lang-input,
+#write pre.md-fences:has(> .CodeMirror) > .code-tooltip .mode {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+#write .ty-cm-lang-input,
+#write .md-fences .code-tooltip .mode {
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+}
+
+#write pre.md-fences .CodeMirror-lines {
+    padding: 0;
+}
+
+#write pre.md-fences .CodeMirror-code > div {
+    min-height: 1.65em;
+}
+
+#write pre.md-fences pre.CodeMirror-line {
+    /* Match CodeMirror's measurement lines so selections align with text. */
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: var(--text-color);
+    white-space: pre;
+}
+
+#write pre.md-fences .CodeMirror-gutters {
+    border: 0;
+    background: transparent;
+}
+
+#write pre.md-fences .CodeMirror-linenumber {
+    color: var(--text-tertiary);
+}
+
+#write pre.md-fences .CodeMirror-cursor {
+    border-left-color: var(--accent);
+}
+
+.CodeMirror-selected {
+    background: var(--selection-bg) !important;
+    color: var(--text-color) !important;
+}
+
+html body #write .CodeMirror-selected {
+    background: var(--selection-bg) !important;
+    color: var(--text-color) !important;
+}
+
+/* Typora can paint both a selection layer and marked text at the same time. */
+.CodeMirror-selectedtext,
+html body #write .CodeMirror-selectedtext {
+    background: transparent !important;
+}
+
+#write pre.md-fences ::selection,
+#write pre.md-fences *::selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+.md-search-hit,
+.md-search-select,
+.cm-search-hit.CodeMirror-selectedtext,
+.cm-search-hit.CodeMirror-selected {
+    background: var(--search-hit-bg) !important;
+    color: var(--search-hit-text) !important;
+    text-shadow: none;
+}
+
+html body #write .md-search-hit,
+html body #write .md-search-select,
+html body #write .cm-s-inner .cm-search-hit.CodeMirror-selectedtext,
+html body #write .cm-s-inner .cm-search-hit.CodeMirror-selected {
+    background: var(--search-hit-bg) !important;
+    color: var(--search-hit-text) !important;
+    text-shadow: none;
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-keyword {
+    color: var(--syntax-keyword);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-string,
+:is(.cm-s-inner, .cm-s-typora-default) .cm-string-2 {
+    color: var(--syntax-string);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-number,
+:is(.cm-s-inner, .cm-s-typora-default) .cm-atom {
+    color: var(--syntax-number);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-comment {
+    color: var(--syntax-comment);
+    font-style: italic;
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-variable,
+:is(.cm-s-inner, .cm-s-typora-default) .cm-variable-2 {
+    color: var(--syntax-variable);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-def {
+    color: var(--syntax-def);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-property,
+:is(.cm-s-inner, .cm-s-typora-default) .cm-attribute,
+:is(.cm-s-inner, .cm-s-typora-default) .cm-qualifier {
+    color: var(--syntax-property);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-operator {
+    color: var(--syntax-operator);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-builtin,
+:is(.cm-s-inner, .cm-s-typora-default) .cm-type {
+    color: var(--syntax-builtin);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-meta {
+    color: var(--syntax-meta);
+}
+
+:is(.cm-s-inner, .cm-s-typora-default) .cm-error {
+    border: 0;
+    color: var(--syntax-error);
+}
+
+/* ---------------------------------------------------------
+   TOC
+   --------------------------------------------------------- */
+
+#write .md-toc {
+    margin: 1.4em 0 2.2em;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+#write .md-toc-content {
+    margin: 0;
+    padding: 0 0 0 12px !important;
+    border-left: 1px solid var(--border-color);
+    background: transparent;
+    box-shadow: none;
+}
+
+#write .md-toc-item {
+    display: block;
+    line-height: 1.9;
+}
+
+#write a.md-toc-inner {
+    color: var(--text-secondary);
+    font-weight: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+#write a.md-toc-inner:hover {
+    color: var(--accent);
+}
+
+#write div.md-toc-tooltip {
+    border: 1px solid var(--overlay-border) !important;
+    border-radius: var(--radius-sm) !important;
+    background: var(--overlay-bg) !important;
+    color: var(--overlay-text) !important;
+    box-shadow: var(--shadow-menu) !important;
+}
+
+#write div.md-toc-tooltip .md-delete-toc {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+}
+
+#write div.md-toc-tooltip .md-delete-toc:hover {
+    background: var(--accent-soft) !important;
+    color: var(--accent) !important;
+}
+
+#write .md-toc:focus .md-toc-content {
+    border-left-color: var(--accent) !important;
+}
+
+#write sup.md-footnote,
+#write .md-footnote {
+    background: transparent !important;
+    color: var(--accent) !important;
+}
+
+/* ---------------------------------------------------------
+   Images, math, mermaid
+   --------------------------------------------------------- */
+
+#write img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    filter: none;
+}
+
+#write p:has(> .md-image),
+#write p:has(> img) {
+    text-align: center;
+}
+
+#write .md-image > .md-meta {
+    color: var(--text-tertiary);
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+}
+
+#write .md-math-block,
+#write .mathjax-block {
+    margin: 1.4em 0;
+    overflow-x: auto;
+}
+
+#write .md-inline-math,
+#write .MathJax_SVG,
+#write .MathJax_SVG svg {
+    color: var(--text-color) !important;
+    fill: var(--text-color) !important;
+}
+
+#write .md-diagram {
+    margin: 1.4em 0;
+}
+
+#write .md-diagram-panel {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    box-shadow: none;
+}
+
+#write .md-diagram-panel svg text,
+#write .md-diagram-panel svg tspan,
+#write .md-diagram-panel svg .labelText,
+#write .md-diagram-panel svg .messageText,
+#write .md-diagram-panel svg .titleText,
+#write .md-diagram-panel svg .nodeLabel {
+    color: var(--mermaid-text) !important;
+    fill: var(--mermaid-text) !important;
+}
+
+#write .md-diagram-panel svg .node rect,
+#write .md-diagram-panel svg .node circle,
+#write .md-diagram-panel svg .node ellipse,
+#write .md-diagram-panel svg .node polygon,
+#write .md-diagram-panel svg .node path,
+#write .md-diagram-panel svg .actor {
+    fill: var(--mermaid-node-bg) !important;
+    stroke: var(--mermaid-node-border) !important;
+}
+
+#write .md-diagram-panel svg .edgePath path,
+#write .md-diagram-panel svg .flowchart-link,
+#write .md-diagram-panel svg .messageLine0,
+#write .md-diagram-panel svg .messageLine1,
+#write .md-diagram-panel svg .actor-line,
+#write .md-diagram-panel svg line,
+#write .md-diagram-panel svg .loopLine {
+    stroke: var(--mermaid-line) !important;
+}
+
+#write .md-diagram-panel svg .edgeLabel rect,
+#write .md-diagram-panel svg .labelBox,
+#write .md-diagram-panel svg .cluster rect {
+    fill: var(--mermaid-label-bg) !important;
+    stroke: var(--mermaid-node-border) !important;
+}
+
+#write .md-diagram-panel svg .edgeLabel span,
+#write .md-diagram-panel svg .clusters span.nodeLabel {
+    background: var(--mermaid-label-bg) !important;
+    color: var(--mermaid-text) !important;
+}
+
+#write pre[lang="mermaid"] {
+    background: transparent;
+}
+
+/* ---------------------------------------------------------
+   Meta block (front matter)
+   --------------------------------------------------------- */
+
+#write pre.md-meta-block {
+    margin: 0 0 1.8em;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   Subtle anime watermark: present, but quiet
+   --------------------------------------------------------- */
+
+content::after {
+    content: "";
+    position: fixed;
+    left: var(--watermark-left);
+    right: var(--watermark-right);
+    top: var(--watermark-top);
+    bottom: var(--watermark-bottom);
+    width: var(--watermark-size);
+    height: var(--watermark-size);
+    background: var(--watermark-image) center / contain no-repeat;
+    opacity: var(--watermark-opacity);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.typora-sourceview-on content::after {
+    display: none;
+}
+
+html body.typora-sourceview-on #typora-source::after {
+    content: "";
+    position: fixed;
+    left: var(--watermark-left);
+    right: var(--watermark-right);
+    top: var(--watermark-top);
+    bottom: var(--watermark-bottom);
+    width: var(--watermark-size);
+    height: var(--watermark-size);
+    background: var(--watermark-image) center / contain no-repeat;
+    opacity: var(--watermark-opacity);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@media print {
+    content::after,
+    html body.typora-sourceview-on #typora-source::after {
+        display: none;
+    }
+}
+
+/* Source mode syntax: Typora's base colors are pink/orange, override them. */
+html body .cm-s-typora-default .cm-header,
+html body .cm-s-typora-default .cm-property {
+    color: var(--accent) !important;
+}
+
+html body .cm-s-typora-default .cm-atom,
+html body .cm-s-typora-default .cm-number {
+    color: var(--text-secondary) !important;
+}
+
+html body .cm-s-typora-default .cm-comment,
+html body .cm-s-typora-default .cm-code {
+    color: var(--text-tertiary) !important;
+    font-style: italic;
+}
+
+html body .cm-s-typora-default .cm-tag {
+    color: var(--syntax-tag) !important;
+}
+
+html body .cm-s-typora-default .cm-string {
+    color: var(--text-secondary) !important;
+}
+
+html body .cm-s-typora-default .cm-link {
+    color: var(--accent) !important;
+    text-decoration: underline;
+}
+
+html body .cm-s-typora-default .cm-variable-2,
+html body .cm-s-typora-default .cm-variable-1 {
+    color: var(--text-color) !important;
+}
+
+html body .cm-s-typora-default .cm-strong {
+    color: var(--text-color) !important;
+    font-weight: 650;
+}
+
+html body .cm-s-typora-default .cm-em {
+    font-style: italic;
+}
+
+html body .cm-s-typora-default .cm-del {
+    color: var(--text-tertiary) !important;
+    text-decoration: line-through;
+}
+
+html body .cm-s-typora-default .cm-hr,
+html body .cm-s-typora-default .cm-formatting {
+    color: var(--text-tertiary) !important;
+}
+
+html body .cm-s-typora-default .cm-table-row {
+    color: var(--text-color) !important;
+}
+
+html body .cm-s-typora-default .CodeMirror-cursor {
+    border-left: 2px solid var(--accent) !important;
+}
+
+html body .cm-s-typora-default .CodeMirror-activeline-background {
+    background: var(--surface-2) !important;
+}
+
+/* Source mode */
+html body #typora-source {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+html body #typora-source .CodeMirror {
+    background: transparent !important;
+    color: var(--text-color) !important;
+    font-family: var(--font-mono);
+}
+
+html body #typora-source .CodeMirror-lines {
+    max-width: var(--source-max-width);
+    margin: 0 auto;
+    padding: var(--source-padding);
+}
+
+html body #typora-source .CodeMirror-lines pre {
+    border: 0;
+    background: transparent;
+}
+
+html body #typora-source .CodeMirror-activeline pre {
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+}
+
+html body #typora-source .CodeMirror-linebackground {
+    background: transparent !important;
+}
+
+html body #typora-source ::selection,
+html body #typora-source *::selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+html body.typora-sourceview-on #toggle-sourceview-btn {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-sm) !important;
+    background: var(--surface-2) !important;
+    color: var(--text-color) !important;
+}
+
+html body.typora-sourceview-on #toggle-sourceview-btn span {
+    color: var(--text-secondary) !important;
+}
+
+html body #toggle-sourceview-btn:hover,
+html body.typora-sourceview-on #toggle-sourceview-btn:hover {
+    color: var(--accent) !important;
+}
+
+/* Search, menus, modals and megamenu surfaces */
+html body #md-searchpanel,
+html body .modal-content,
+html body .popover,
+html body .dropdown-menu,
+html body .auto-suggest-container {
+    border-color: var(--border-color) !important;
+    background-color: var(--surface) !important;
+    color: var(--text-color) !important;
+}
+
+html body #md-searchpanel input,
+html body .modal-content input,
+html body .popover input,
+html body .dropdown-menu input {
+    border: 1px solid var(--border-color) !important;
+    background: var(--surface-2) !important;
+    color: var(--text-color) !important;
+}
+
+html body .dropdown-menu > li > a,
+html body .context-menu > li > a {
+    color: var(--text-color) !important;
+}
+
+html body .dropdown-menu > li > a:hover,
+html body .context-menu > li > a:hover {
+    background: var(--accent-soft) !important;
+    color: var(--accent) !important;
+}
+
+html body .popover-title {
+    border-color: var(--border-color) !important;
+    background: var(--surface-2) !important;
+    color: var(--text-color) !important;
+}
+
+html body .md-grid-board.md-reset td {
+    border-color: var(--border-color) !important;
+    background: var(--surface-2) !important;
+}
+
+html body .md-grid-board.md-reset td a.md-active {
+    border-color: var(--accent) !important;
+    background: var(--accent-soft) !important;
+}
+
+/* Typora's start / megamenu screen */
+html body #megamenu-content {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content .megamenu-menu-panel,
+html body #megamenu-content .megamenu-menu-content-section,
+html body #megamenu-content #preference-content {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content .megamenu-menu-panel h1,
+html body #megamenu-content .megamenu-menu-panel h2,
+html body #megamenu-content .megamenu-menu-panel h3,
+html body #megamenu-content .megamenu-menu-panel h4,
+html body #megamenu-content .megamenu-menu-panel h5,
+html body #megamenu-content .megamenu-menu-panel h6,
+html body #megamenu-content .preference-item-key,
+html body #megamenu-content label,
+html body #megamenu-content .control-label {
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content .preference-item-hint {
+    color: var(--text-tertiary) !important;
+}
+
+html body #megamenu-content a {
+    color: var(--accent) !important;
+}
+
+html body #megamenu-content textarea,
+html body #megamenu-content input,
+html body #megamenu-content select {
+    border-color: var(--border-color) !important;
+    background: var(--surface-2) !important;
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content .megamenu-menu-panel {
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content input {
+    border-color: var(--border-color) !important;
+    background: var(--surface-2) !important;
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content .btn {
+    border-color: var(--border-color) !important;
+    background: var(--surface-2) !important;
+    color: var(--text-color) !important;
+}
+
+html body #megamenu-content .btn:hover {
+    background: var(--accent-soft) !important;
+    color: var(--accent) !important;
+}
+
+html body #megamenu-menu-sidebar {
+    background: var(--surface-2) !important;
+}
+
+html body #megamenu-menu-sidebar .megamenu-menu-list > li > a,
+html body #megamenu-menu-sidebar a[role="menuitem"] {
+    color: var(--text-secondary) !important;
+}
+
+html body #megamenu-menu-sidebar .megamenu-menu-list > li > a:hover,
+html body #megamenu-menu-sidebar a[role="menuitem"]:hover,
+html body #megamenu-menu-sidebar a[role="menuitem"].active {
+    background: var(--accent-soft) !important;
+    color: var(--accent) !important;
+}
+
+/* Sidebar and UI */
+#typora-sidebar {
+    border-right: 1px solid var(--border-color);
+    background: var(--side-bar-bg-color);
+    font-family: var(--font-sans);
+    box-shadow: none;
+}
+
+#typora-sidebar .info-panel-tab-title {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+#typora-sidebar .info-panel-tab .info-panel-tab-border {
+    background: transparent;
+}
+
+#typora-sidebar .info-panel-tab.active .info-panel-tab-title {
+    color: var(--accent);
+}
+
+#typora-sidebar .info-panel-tab.active .info-panel-tab-border {
+    height: 2px;
+    background: var(--accent);
+}
+
+#typora-sidebar .info-panel-tab:hover {
+    border-radius: var(--radius-sm);
+    background: var(--item-hover-bg-color);
+}
+
+#typora-sidebar .file-list-item {
+    margin: 2px 8px;
+    padding: 6px 8px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    box-shadow: none;
+    font-family: var(--font-sans);
+}
+
+#typora-sidebar .file-list-item:hover {
+    background: var(--item-hover-bg-color);
+}
+
+html body #typora-sidebar .file-list-item:hover {
+    background: var(--item-hover-bg-color) !important;
+    opacity: 1;
+}
+
+#typora-sidebar .file-list-item.active {
+    border: 0;
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+html body #typora-sidebar .file-list-item.active {
+    background: var(--accent-soft) !important;
+    opacity: 1;
+}
+
+#typora-sidebar .file-list-item-file-name,
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .file-list-item-time,
+#typora-sidebar .file-list-item-parent-loc,
+#typora-sidebar .outline-label,
+#typora-sidebar .info-panel-tab-title {
+    font-family: var(--font-sans);
+}
+
+#typora-sidebar .file-list-item-file-name {
+    color: var(--text-color);
+}
+
+#typora-sidebar .file-list-item.active .file-list-item-file-name {
+    color: var(--accent);
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .file-list-item-time,
+#typora-sidebar .file-list-item-parent-loc {
+    color: var(--text-tertiary);
+}
+
+#typora-sidebar .outline-item,
+#typora-sidebar .outline-label {
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+}
+
+html body #typora-sidebar .outline-item:hover,
+html body #typora-sidebar .outline-label:hover {
+    border-radius: var(--radius-sm);
+    background: var(--item-hover-bg-color) !important;
+    color: var(--text-color);
+}
+
+#typora-sidebar .outline-item-active > .outline-item,
+#typora-sidebar .outline-item-active .outline-label {
+    color: var(--accent);
+}
+
+html body #typora-sidebar .outline-item-active > .outline-item,
+html body #typora-sidebar .outline-item-active .outline-label {
+    border-radius: var(--radius-sm);
+    background: var(--accent-soft) !important;
+    color: var(--accent) !important;
+}
+
+header,
+footer {
+    border-color: var(--border-color);
+    background: transparent;
+}
+
+.dropdown-menu,
+.context-menu {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    box-shadow: var(--shadow-menu);
+}
+
+.dropdown-menu > li > a:hover,
+.context-menu > li > a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+#typora-quick-open {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    box-shadow: var(--shadow-popover);
+}
+
+#typora-quick-open .typora-quick-open-item.active {
+    background: var(--accent-soft);
+}
+
+.btn {
+    border-color: var(--border-color);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--text-tertiary) 35%, transparent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--text-tertiary) 55%, transparent);
+}
+
+@media (max-width: 900px) {
+    #write {
+        padding: 32px 28px 64px;
+    }
+}

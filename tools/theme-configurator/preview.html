@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="theme-css" rel="stylesheet" href="../../onelight.css">
+</head>
+<body>
+<content>
+  <div id="write">
+    <h1>OneLight</h1>
+
+    <div class="md-toc">
+      <p class="md-toc-content">
+        <span class="md-toc-item md-toc-h1"><a class="md-toc-inner" href="#">OneLight</a></span>
+        <span class="md-toc-item md-toc-h2"><a class="md-toc-inner" href="#">排版与节奏</a></span>
+      </p>
+    </div>
+
+    <h2>排版与节奏</h2>
+    <p>正文里可以出现 <strong>加粗强调</strong>、<a href="#">链接</a>、<code>行内代码</code>，以及 <mark>高亮</mark>。中英混排 English text 应该保持自然。</p>
+    <p>这是一段用于观察行高、字距和内容宽度的示例文字。装饰不必很多，但阅读节奏应该稳定。</p>
+
+    <blockquote>
+      <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
+    </blockquote>
+
+    <div class="md-alert md-alert-note">
+      <p class="md-alert-text-container" data-text="note">Note</p>
+      <p>提示信息使用很浅的底色和 1px 边框，不再堆叠阴影。</p>
+    </div>
+
+    <h3>列表</h3>
+    <ul>
+      <li>无序列表项一</li>
+      <li>无序列表项二</li>
+    </ul>
+    <ol>
+      <li>有序列表项一</li>
+      <li>有序列表项二</li>
+    </ol>
+
+    <h3>代码</h3>
+    <pre class="md-fences md-end-block ty-contain-cm" lang="javascript"><div class="CodeMirror cm-s-inner"><div class="CodeMirror-code"><div><pre class="CodeMirror-line"><span class="cm-keyword">const</span> <span class="cm-def">theme</span> <span class="cm-operator">=</span> <span class="cm-string">'onelight'</span>;</pre></div><div><pre class="CodeMirror-line"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'quiet stationery'</span>);</pre></div></div></div></pre>
+
+    <h3>表格</h3>
+    <figure class="md-table-fig table-figure">
+      <table>
+        <thead><tr><th>时间</th><th>人数</th><th>地点</th></tr></thead>
+        <tbody>
+          <tr><td>2024-12-15 12:34:59</td><td>123</td><td>上海</td></tr>
+          <tr><td>2024-12-15 12:35:03</td><td>456</td><td>北京</td></tr>
+        </tbody>
+      </table>
+    </figure>
+  </div>
+</content>
+
+<script>
+  const themeLink = document.getElementById('theme-css');
+
+  window.addEventListener('message', (event) => {
+    if (event.source !== window.parent || (location.origin !== 'null' && event.origin !== location.origin)) return;
+    const data = event.data;
+    if (!data || data.type !== 'config') return;
+
+    themeLink.href = data.theme === 'dark' ? '../../onelight-dark.css' : '../../onelight.css';
+
+    const root = document.documentElement;
+    const vars = data.vars || {};
+    for (const key of Array.from(root.style)) {
+      if (key.startsWith('--') && !(key in vars)) root.style.removeProperty(key);
+    }
+    for (const [key, value] of Object.entries(vars)) {
+      if (value === null || value === undefined || value === '') {
+        root.style.removeProperty(key);
+      } else {
+        root.style.setProperty(key, value);
+      }
+    }
+  });
+
+  window.parent.postMessage({ type: 'preview-ready' }, location.origin === 'null' ? '*' : location.origin);
+</script>
+</body>
+</html>

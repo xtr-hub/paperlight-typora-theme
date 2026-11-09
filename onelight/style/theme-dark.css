@@ -1,0 +1,87 @@
+/* Dark theme: token overrides only. No component rules with raw colors. */
+:root {
+    color-scheme: dark;
+
+    --bg-color: #1b1c1f;
+    --surface: #23252a;
+    --surface-2: #2a2d33;
+    --surface-3: #31343b;
+
+    --text-color: #d8dbe2;
+    --text-secondary: #a8adb8;
+    --text-tertiary: #7c828d;
+
+    --accent: #8aa4ff;
+    --accent-strong: #a8bcff;
+    --accent-soft: rgba(138, 164, 255, 0.12);
+    --accent-border: rgba(138, 164, 255, 0.28);
+
+    --border-color: #34373e;
+    --border-strong: #41454e;
+
+    --code-bg-color: #202226;
+    --quote-bg: rgba(138, 164, 255, 0.07);
+    --mark-bg: #5a4a1f;
+    --mark-text: #f0e2a0;
+    --selection-bg: rgba(138, 164, 255, 0.12);
+    --danger: #e08a9a;
+    --inline-code-color: #e2e5ea;
+    --focus-dim-color: color-mix(in srgb, var(--text-color) 65%, transparent);
+    --on-accent: #ffffff;
+
+    --alert-note: #7aa2f7;
+    --alert-tip: #7fc99a;
+    --alert-important: #b39ddb;
+    --alert-warning: #e0b45c;
+    --alert-caution: #e08a9a;
+
+    --syntax-keyword: #b39ddb;
+    --syntax-string: #8fce9f;
+    --syntax-number: #e0a06a;
+    --syntax-comment: var(--text-tertiary);
+    --syntax-variable: #8ab4f8;
+    --syntax-def: #7fc9b0;
+    --syntax-property: #e0a9c6;
+    --syntax-operator: var(--text-secondary);
+    --syntax-builtin: #e0a06a;
+    --syntax-meta: #d8b08a;
+    --syntax-error: var(--danger);
+    --syntax-tag: #e0a9c6;
+
+    --mermaid-theme: dark;
+
+    --shadow-soft: none;
+    --shadow-menu: 0 6px 20px rgba(0, 0, 0, 0.35);
+    --shadow-popover: 0 8px 30px rgba(0, 0, 0, 0.45);
+
+    --side-bar-bg-color: #1f2125;
+    --active-file-bg-color: var(--accent-soft);
+    --active-file-text-color: var(--accent);
+    --active-file-border-color: var(--accent);
+    --item-hover-bg-color: var(--surface-2);
+    --item-hover-text-color: var(--text-color);
+    --theme-color: var(--accent);
+    --theme-light-color: var(--surface);
+    --select-text-bg-color: var(--selection-bg);
+    --select-text-font-color: var(--text-color);
+    --search-select-bg-color: var(--accent-soft);
+    --search-select-text-color: var(--text-color);
+    --primary-color: var(--accent);
+    --primary-btn-border-color: var(--accent);
+    --primary-btn-text-color: var(--on-accent);
+    --control-text-color: var(--text-secondary);
+    --control-text-hover-color: var(--text-color);
+    --rawblock-edit-panel-bd: var(--border-color);
+    --md-char-color: var(--text-tertiary);
+    --meta-content-color: var(--text-secondary);
+}
+
+html,
+body,
+content {
+    color-scheme: dark;
+}
+
+html:root {
+    --blur-text-color: color-mix(in srgb, var(--text-color) 45%, transparent);
+}

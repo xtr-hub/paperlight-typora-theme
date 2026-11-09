@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OneLight 主题设置</title>
+  <link rel="stylesheet" href="configurator.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>OneLight 主题设置</h1>
+      <p>挑选喜欢的配色和图片，在这里预览属于你的 Typora。</p>
+    </div>
+    <div class="theme-switch" role="group" aria-label="预览主题">
+      <button type="button" class="theme-btn active" data-preview-theme="light">浅色</button>
+      <button type="button" class="theme-btn" data-preview-theme="dark">深色</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <aside class="controls">
+      <section class="control-section">
+        <h2>预设</h2>
+        <div class="preset-grid">
+          <button type="button" class="preset" data-preset="quiet">安静纸张</button>
+          <button type="button" class="preset" data-preset="sakura">樱粉</button>
+          <button type="button" class="preset" data-preset="mint">薄荷</button>
+          <button type="button" class="preset" data-preset="lavender">薰衣草</button>
+          <button type="button" class="preset" data-preset="mono">单色</button>
+        </div>
+      </section>
+
+      <section class="control-section">
+        <h2>配色</h2>
+        <label class="row">
+          <span>强调色</span>
+          <input id="accentColor" type="color" value="#5b7cfa">
+        </label>
+        <p class="hint">标题短线、链接、列表序号、选中态都会围绕这个颜色生成。</p>
+      </section>
+
+      <section class="control-section">
+        <h2>页面背景</h2>
+        <label class="row">
+          <span>页面背景</span>
+          <select id="pageBg">
+            <option value="none">无</option>
+            <option value="mutou.gif">mutou.gif</option>
+            <option value="mutou2.gif">mutou2.gif</option>
+            <option value="custom">选择本地图片</option>
+            <option value="url">使用图片链接</option>
+          </select>
+        </label>
+        <label class="row"><span>上传背景图片</span><input id="pageBgFile" type="file" accept="image/*"></label>
+        <label class="row"><span>背景图片链接</span><input id="pageBgUrl" type="url" placeholder="https://example.com/background.png"></label>
+        <p class="hint">选择本地图片或输入图片链接后，将背景切换到对应选项。</p>
+        <div class="grid-2">
+          <label class="row">
+            <span>背景尺寸</span>
+            <select id="pageBgSize">
+              <option value="cover">铺满</option>
+              <option value="contain">完整显示</option>
+              <option value="auto">原始尺寸</option>
+            </select>
+          </label>
+          <label class="row">
+            <span>背景位置</span>
+            <select id="pageBgPosition">
+              <option value="center">居中</option>
+              <option value="top">靠上</option>
+              <option value="bottom">靠下</option>
+              <option value="left">靠左</option>
+              <option value="right">靠右</option>
+              <option value="custom">自定义</option>
+            </select>
+          </label>
+        </div>
+        <label class="row">
+          <span>重复</span>
+          <select id="pageBgRepeat">
+            <option value="no-repeat">不重复</option>
+            <option value="repeat">平铺</option>
+          </select>
+        </label>
+
+        <label class="row range-row">
+          <span>遮罩强度 <output id="pageBgOverlayValue">60</output>%</span>
+          <input id="pageBgOverlay" type="range" min="0" max="90" step="5" value="60">
+        </label>
+        <p class="hint">遮罩会柔化背景图片，让文字更容易阅读。</p>
+        <div class="grid-2">
+          <label class="row range-row"><span>横向位置 <output id="pageBgXValue">50</output>%</span><input id="pageBgX" type="range" min="0" max="100" value="50"></label>
+          <label class="row range-row"><span>纵向位置 <output id="pageBgYValue">50</output>%</span><input id="pageBgY" type="range" min="0" max="100" value="50"></label>
+        </div>
+        <p class="hint">选择「自定义」位置后，拖动滑块精细调整。</p>
+      </section>
+
+      <section class="control-section">
+        <h2>表情包</h2>
+        <label class="row checkbox">
+          <input id="watermarkEnabled" type="checkbox" checked>
+          <span>显示表情包</span>
+        </label>
+        <label class="row">
+          <span>水印图片</span>
+          <select id="watermarkImage">
+            <option value="mutou2.gif">mutou2.gif</option>
+            <option value="mutou.gif">mutou.gif</option>
+            <option value="custom">选择本地图片</option>
+            <option value="url">使用图片链接</option>
+          </select>
+        </label>
+        <label class="row"><span>上传表情包</span><input id="watermarkFile" type="file" accept="image/*"></label>
+        <label class="row"><span>表情包图片链接</span><input id="watermarkUrl" type="url" placeholder="https://example.com/sticker.gif"></label>
+        <label class="row"><span>停靠位置</span><select id="watermarkAnchor"><option value="bottom-right">右下</option><option value="bottom-left">左下</option><option value="top-right">右上</option><option value="top-left">左上</option></select></label>
+        <label class="row range-row">
+          <span>尺寸 <output id="watermarkSizeValue">108</output>px</span>
+          <input id="watermarkSize" type="range" min="72" max="180" step="2" value="108">
+        </label>
+        <label class="row range-row">
+          <span>不透明度 <output id="watermarkOpacityValue">100</output>%</span>
+          <input id="watermarkOpacity" type="range" min="20" max="100" step="5" value="100">
+        </label>
+        <div class="grid-2">
+          <label class="row range-row">
+            <span>横向边距 <output id="watermarkRightValue">22</output>px</span>
+            <input id="watermarkRight" type="range" min="0" max="100" step="2" value="22">
+          </label>
+          <label class="row range-row">
+            <span>纵向边距 <output id="watermarkBottomValue">38</output>px</span>
+            <input id="watermarkBottom" type="range" min="0" max="120" step="2" value="38">
+          </label>
+        </div>
+      </section>
+
+      <section class="control-section">
+        <h2>排版</h2>
+        <label class="row">
+          <span>正文</span>
+          <select id="fontFace">
+            <option value="sans">系统无衬线</option>
+            <option value="serif">系统衬线</option>
+          </select>
+        </label>
+        <label class="row checkbox">
+          <input id="displayFont" type="checkbox" checked>
+          <span>标题使用手写体（MiaoZi）</span>
+        </label>
+        <label class="row range-row">
+          <span>字号 <output id="fontSizeValue">16</output>px</span>
+          <input id="fontSize" type="range" min="14" max="19" step="0.5" value="16">
+        </label>
+        <label class="row range-row">
+          <span>行高 <output id="lineHeightValue">1.75</output></span>
+          <input id="lineHeight" type="range" min="1.5" max="2.1" step="0.05" value="1.75">
+        </label>
+        <label class="row range-row">
+          <span>内容宽度 <output id="contentWidthValue">840</output>px</span>
+          <input id="contentWidth" type="range" min="680" max="1120" step="10" value="840">
+        </label>
+      </section>
+
+      <section class="control-section">
+        <h2>细节</h2>
+        <label class="row range-row">
+          <span>圆角 <output id="radiusValue">6</output>px</span>
+          <input id="radius" type="range" min="0" max="18" step="1" value="6">
+        </label>
+        <label class="row">
+          <span>阴影</span>
+          <select id="shadow">
+            <option value="soft">轻</option>
+            <option value="none">无</option>
+          </select>
+        </label>
+        <label class="row checkbox">
+          <input id="h1Rule" type="checkbox" checked>
+          <span>h1 下方短线</span>
+        </label>
+        <label class="row checkbox">
+          <input id="h2Border" type="checkbox" checked>
+          <span>h2 下方细线</span>
+        </label>
+        <label class="row range-row">
+          <span>Focus 淡化 <output id="focusDimValue">65</output>%</span>
+          <input id="focusDim" type="range" min="20" max="90" step="5" value="65">
+        </label>
+      </section>
+
+      <section class="actions">
+        <h2>应用设置</h2>
+        <p class="hint">选择自己的 Typora 主题文件夹，然后保存；也可以下载配置手动安装。</p>
+        <button type="button" id="chooseThemeDirectory" class="button">选择主题文件夹</button>
+        <p id="themeDirectoryStatus" class="directory-status" aria-live="polite">尚未选择文件夹</p>
+        <button type="button" id="saveTheme" class="button primary">保存到主题文件夹</button>
+        <div class="action-row">
+          <button type="button" id="copyLight" class="button">复制浅色 CSS</button>
+          <button type="button" id="copyDark" class="button">复制深色 CSS</button>
+        </div>
+        <button type="button" id="downloadBoth" class="button">下载两个 CSS 文件</button>
+        <div class="action-row">
+          <button type="button" id="exportConfig" class="button">导出配置</button>
+          <label class="button file-button">导入配置<input id="importConfig" type="file" accept="application/json,.json"></label>
+        </div>
+        <p id="status" class="status" role="status"></p>
+        <p class="hint">文件夹写入需使用支持该功能的浏览器。其他浏览器可下载 CSS，再手动放入 Typora 主题目录。</p>
+      </section>
+    </aside>
+
+    <section class="preview-pane">
+      <div class="preview-head">
+        <span>实时预览</span>
+        <span class="preview-note">预览内容为示例文章</span>
+      </div>
+      <iframe id="preview" src="preview.html" title="OneLight 主题预览"></iframe>
+    </section>
+  </main>
+
+  <script src="configurator.js"></script>
+</body>
+</html>
