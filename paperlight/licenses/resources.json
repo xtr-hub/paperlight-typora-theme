@@ -1,0 +1,37 @@
+{
+  "checked": "2026-11-10",
+  "inheritedFrom": "https://github.com/caolib/typora-onelight-theme/tree/onelight",
+  "note": "Checksums identify files; they are not proof of permission.",
+  "resources": [
+    {
+      "file": "fonts/MiaoZi-GuoZhiTi.woff2",
+      "sha256": "6e187aa300fd4c291e7e1e36fe4ee2c6ca874aeeb2ba5e73b7bfb3a2adac6e6b",
+      "status": "Unverified redistribution permission",
+      "evidence": "Embedded font metadata: Shanghai Miaozi Network Technology Co., Ltd; Version 1.000; contact for license agreement."
+    },
+    {
+      "file": "fonts/JetBrainsMono-Regular.woff2",
+      "sha256": "a9cb1cd82332b23a47e3a1239d25d13c86d16c4220695e34b243effa999f45f2",
+      "status": "OFL-1.1",
+      "evidence": "Embedded font metadata: JetBrains Mono Project Authors; Version 2.304; SIL OFL 1.1."
+    },
+    {
+      "file": "fonts/codicon.ttf",
+      "sha256": "07a6b7322045e81b9f200ba5723e92f62aea1f2af84f16df17a5871a80333639",
+      "status": "Upstream CC-BY-4.0; exact bundled version unverified",
+      "evidence": "Embedded family codicon, Version 1.5; no embedded license fields. Upstream license does not establish the provenance of this exact copy."
+    },
+    {
+      "file": "img/mutou.gif",
+      "sha256": "ef36c8bddeddc998b01ba7c044db0adfdc5109c96b7e1a3563af19fe492e3c47",
+      "status": "Unverified author and redistribution permission",
+      "evidence": "Inherited from the OneLight theme; no independent image license located."
+    },
+    {
+      "file": "img/mutou2.gif",
+      "sha256": "86796c735de3bc1318c2bbf2b7d10a4978c72189b9e5f6ec639d8cd7a7d62c28",
+      "status": "Unverified author and redistribution permission",
+      "evidence": "Inherited from the OneLight theme; no independent image license located."
+    }
+  ]
+}

@@ -120,6 +120,15 @@ node tools/theme-configurator/build.mjs
 
 仓库提供 GitHub Pages 工作流。将仓库 **Settings → Pages → Build and deployment → Source** 设为 **GitHub Actions** 后，推送到 <code>paperlight</code> 分支会自动构建和部署。更多使用、部署和测试细节见 [设置页说明](tools/theme-configurator/README.md)。
 
+## 许可证与第三方素材
+
+主题代码沿用 [WTFPL](LICENSE)。随附字体、图标和图片保留各自的权利，**不统一适用 WTFPL**。
+当前保留原来的喵字果汁体和两张 GIF；喵字果汁体的再分发授权、两张 GIF 的作者与再分发许可尚未核实。
+版权说明不等于授权，也不代表这些资源可以免费商用或任意再分发。
+详见[资源来源、许可状态与完整许可文件](paperlight/licenses/README.md)。
+
+在补齐授权或替换相关资源前，暂不发布此次计划中的正式 Release 或提交官方主题库收录 PR。
+
 ## 其他
 
 - [示例 Markdown 文档](docs/demo.md)
